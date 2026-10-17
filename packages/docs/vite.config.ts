@@ -86,6 +86,18 @@ function stubRnSvgSoundForOptimizer() {
 const componentsSrc = path.resolve(process.cwd(), '../components/src').split(path.sep).join('/');
 
 /**
+ * 站点部署根路径。
+ *
+ * GitHub Pages 的**项目页**地址是 `https://<owner>.github.io/<repo>/`，
+ * 资源必须挂在 `/<repo>/` 下，否则 JS/CSS 全 404。
+ *
+ * - 本地 dev / preview / 默认构建：`/`
+ * - CI（`.github/workflows/deploy-docs.yml`）：`DOCS_BASE=/<repo>/ pnpm docs:build`
+ * - 自定义域名或 `<owner>.github.io` 仓库：把 `DOCS_BASE` 设成 `/`
+ */
+const base = process.env.DOCS_BASE ?? '/';
+
+/**
  * 文档站（浏览器端）。
  *
  * 关键点：
@@ -97,6 +109,8 @@ const componentsSrc = path.resolve(process.cwd(), '../components/src').split(pat
  * - `__DEV__` / `global` 是 RN 生态里的常见全局量，浏览器端注入。
  */
 export default defineConfig({
+  // 部署到子路径（GitHub Pages 项目页）时由 `DOCS_BASE` 指定，见上方说明
+  base,
   plugins: [patchRnSvgForWeb()],
   resolve: {
     alias: {

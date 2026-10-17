@@ -1,0 +1,74 @@
+# 构建并部署组件文档站到 GitHub Pages
+#
+# 首次使用：仓库 Settings → Pages → Build and deployment → Source 选 **GitHub Actions**。
+# 之后推送到 main（改了文档站 / 组件库源码）就会自动部署，也可以手动 workflow_dispatch。
+#
+# 地址：https://<owner>.github.io/<repo>/
+# 自定义域名 / <owner>.github.io 仓库：把 DOCS_BASE 改成 "/"。
+
+name: Deploy docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/docs/**'
+      - 'packages/components/src/**'
+      - 'pnpm-lock.yaml'
+      - 'package.json'
+      - '.github/workflows/deploy-docs.yml'
+  workflow_dispatch:
+
+# GitHub Pages 官方要求的三项权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一个部署，新的提交取消旧的排队
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck docs
+        run: pnpm --filter @cross-terminal/docs run typecheck
+
+      - name: Build docs
+        run: pnpm docs:build
+        env:
+          # 项目页地址是 /<repo>/，资源必须挂在这个前缀下（否则 CSS/JS 404）
+          DOCS_BASE: /${{ github.event.repository.name }}/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/docs/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

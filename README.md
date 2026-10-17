@@ -126,6 +126,18 @@ components/<组件>.ts（组件层：几何直接写数值，颜色写字符串�
 
 细节见 [`packages/components/README.md`](./packages/components/README.md)。
 
+## 文档站部署（GitHub Pages）
+
+仓库已带 `.github/workflows/deploy-docs.yml`：推送到 `main`（改了 `packages/docs/**` 或组件库源码）
+或手动触发，就会构建并部署到 GitHub Pages。
+
+1. 推到 GitHub；
+2. 仓库 **Settings → Pages → Source** 选 **GitHub Actions**（只需做一次）；
+3. 地址：`https://<owner>.github.io/<repo>/`。
+
+> 项目页在子路径下，所以 CI 会给 `pnpm docs:build` 传 `DOCS_BASE=/<repo>/`（Vite `base`）。
+> 用自定义域名时把它改成 `/`。细节见 [`packages/docs/README.md`](./packages/docs/README.md)。
+
 ## 文档索引
 
 | 文档                                                               | 内容                                         |

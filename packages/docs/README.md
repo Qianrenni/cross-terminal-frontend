@@ -89,3 +89,24 @@ packages/docs/
 2. **本包不用 `@/` 别名**。`tsconfig.json` 里 `@/*` 指向的是**组件库源码**
    （`../components/src/*`），因为 tsc 会顺着 `@cross-terminal/components` 进到组件源码，
    而那边用了 `@/`。所以本包内部一律用相对路径。
+
+## 部署到 GitHub Pages
+
+仓库里已经带好 `.github/workflows/deploy-docs.yml`：推送到 `main`（或手动触发 `workflow_dispatch`）
+就会构建 `packages/docs/dist` 并部署。
+
+**首次使用（只需做一次）**：GitHub 仓库 → `Settings` → `Pages` → `Build and deployment` →
+`Source` 选 **GitHub Actions**。
+
+- 项目页地址：`https://<owner>.github.io/<repo>/`
+- Vite 的 `base` 由环境变量 `DOCS_BASE` 控制（默认 `/`）；workflow 里设成 `/<repo>/`，
+  否则 JS/CSS 会 404；
+- 用自定义域名或 `<owner>.github.io` 仓库时，把 workflow 里的 `DOCS_BASE` 改成 `/`；
+- 路由是 hash（`#/button`），静态托管不需要 404 回退文件。
+
+本地模拟线上路径：
+
+```bash
+DOCS_BASE=/<repo>/ pnpm docs:build
+pnpm docs:preview
+```

@@ -54,15 +54,6 @@ exports[`QButton 快照 primary/加载中 1`] = `
     ]
   }
 >
-  <ActivityIndicator
-    color="#111827"
-    size="small"
-    style={
-      {
-        "marginRight": 2,
-      }
-    }
-  />
   <View
     style={
       {
@@ -79,6 +70,15 @@ exports[`QButton 快照 primary/加载中 1`] = `
         }
       }
     >
+      <ActivityIndicator
+        color="#111827"
+        size="small"
+        style={
+          {
+            "marginRight": 2,
+          }
+        }
+      />
       <Text
         numberOfLines={1}
         style={
@@ -366,15 +366,6 @@ exports[`QButton 快照 secondary/加载中 1`] = `
     ]
   }
 >
-  <ActivityIndicator
-    color="#FFD100"
-    size="small"
-    style={
-      {
-        "marginRight": 2,
-      }
-    }
-  />
   <View
     style={
       {
@@ -391,6 +382,15 @@ exports[`QButton 快照 secondary/加载中 1`] = `
         }
       }
     >
+      <ActivityIndicator
+        color="#FFD100"
+        size="small"
+        style={
+          {
+            "marginRight": 2,
+          }
+        }
+      />
       <Text
         numberOfLines={1}
         style={
@@ -735,15 +735,6 @@ exports[`QButton 快照 tertiary/加载中 1`] = `
     ]
   }
 >
-  <ActivityIndicator
-    color="#FFD100"
-    size="small"
-    style={
-      {
-        "marginRight": 2,
-      }
-    }
-  />
   <View
     style={
       {
@@ -760,6 +751,15 @@ exports[`QButton 快照 tertiary/加载中 1`] = `
         }
       }
     >
+      <ActivityIndicator
+        color="#FFD100"
+        size="small"
+        style={
+          {
+            "marginRight": 2,
+          }
+        }
+      />
       <Text
         numberOfLines={1}
         style={
@@ -1599,18 +1599,18 @@ exports[`QButton 快照 右图标 1`] = `
       >
         提交
       </Text>
+      <View
+        style={
+          {
+            "marginLeft": 2,
+          }
+        }
+      >
+        <Text>
+          ▶
+        </Text>
+      </View>
     </View>
-  </View>
-  <View
-    style={
-      {
-        "marginLeft": 2,
-      }
-    }
-  >
-    <Text>
-      ▶
-    </Text>
   </View>
 </View>
 `;
@@ -1672,17 +1672,6 @@ exports[`QButton 快照 左右图标 1`] = `
   <View
     style={
       {
-        "marginRight": 2,
-      }
-    }
-  >
-    <Text>
-      ◀
-    </Text>
-  </View>
-  <View
-    style={
-      {
         "flexShrink": 1,
       }
     }
@@ -1696,6 +1685,17 @@ exports[`QButton 快照 左右图标 1`] = `
         }
       }
     >
+      <View
+        style={
+          {
+            "marginRight": 2,
+          }
+        }
+      >
+        <Text>
+          ◀
+        </Text>
+      </View>
       <Text
         numberOfLines={1}
         style={
@@ -1722,18 +1722,18 @@ exports[`QButton 快照 左右图标 1`] = `
       >
         提交
       </Text>
+      <View
+        style={
+          {
+            "marginLeft": 2,
+          }
+        }
+      >
+        <Text>
+          ▶
+        </Text>
+      </View>
     </View>
-  </View>
-  <View
-    style={
-      {
-        "marginLeft": 2,
-      }
-    }
-  >
-    <Text>
-      ▶
-    </Text>
   </View>
 </View>
 `;
@@ -1795,17 +1795,6 @@ exports[`QButton 快照 左图标 1`] = `
   <View
     style={
       {
-        "marginRight": 2,
-      }
-    }
-  >
-    <Text>
-      ◀
-    </Text>
-  </View>
-  <View
-    style={
-      {
         "flexShrink": 1,
       }
     }
@@ -1819,6 +1808,17 @@ exports[`QButton 快照 左图标 1`] = `
         }
       }
     >
+      <View
+        style={
+          {
+            "marginRight": 2,
+          }
+        }
+      >
+        <Text>
+          ◀
+        </Text>
+      </View>
       <Text
         numberOfLines={1}
         style={

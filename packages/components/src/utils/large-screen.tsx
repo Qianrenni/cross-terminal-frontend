@@ -316,30 +316,54 @@ export function useLargeScreenScale(): number {
 }
 
 /**
- * 把一组朴素样式按当前屏幕宽度换算，并**按系数缓存**。
+ * 换算后的静态样式表缓存：`样式表 → 系数 → 换算结果`。
  *
- * 入参请用**模块级常量**（引用稳定），否则每次渲染都会重新算一遍。
+ * 静态样式表按主题缓存（`buttonStylesOf`），这里再按系数缓存一层，
+ * 于是**页面上所有按钮共享同一份换算后的样式对象**，而不是每个实例各克隆一份。
+ * 用 `WeakMap` 做第一层 key：主题对象不再被引用时缓存自动回收。
+ */
+const scaledStylesCache = new WeakMap<object, Map<number, object>>();
+
+function scaledStylesOf<T extends object>(styles: T, scale: number): T {
+  // 1 倍（小屏 / Provider 关闭）直接复用原对象，零拷贝
+  if (scale === 1) return styles;
+
+  let byScale = scaledStylesCache.get(styles);
+  if (byScale == null) {
+    byScale = new Map();
+    scaledStylesCache.set(styles, byScale);
+  }
+
+  const cached = byScale.get(scale) as T | undefined;
+  if (cached != null) return cached;
+
+  const scaled = scaleStyles(styles, scale);
+  byScale.set(scale, scaled);
+  return scaled;
+}
+
+/**
+ * 把一组朴素样式按当前屏幕宽度换算。
+ *
+ * 入参请用**模块级常量 / 按主题缓存的样式表**（引用稳定），
+ * 换算结果会按 `(样式表, 系数)` **全局缓存**，多个组件实例共享同一份对象。
  */
 export function useLargeScreenStyles<T extends object>(styles: T): T {
   const scale = useLargeScreenScale();
 
-  return useMemo(() => scaleStyles(styles, scale), [styles, scale]);
+  return useMemo(() => scaledStylesOf(styles, scale), [styles, scale]);
 }
 
 /**
  * 换算**单个** style（对象 / 样式数组都行），开关与系数全在 hook 内部处理。
  *
- * 组件不需要自己拿系数：
- *
- * ```tsx
- * const variant = useMemo(() => buttonVariantStyle(theme, props), [theme, props]);
- * const { container } = useLargeScreenStyle(variant);
- * ```
+ * `1` 倍时直接返回原对象（不克隆）；其它系数下返回新对象 —— 单个 style 通常
+ * 是每个实例自己的计算结果（如变体样式），没有跨实例共享的语义。
  */
 export function useLargeScreenStyle<T>(style: T): T {
   const scale = useLargeScreenScale();
 
-  return useMemo(() => scaleStyle(style, scale), [style, scale]);
+  return useMemo(() => (scale === 1 ? style : scaleStyle(style, scale)), [style, scale]);
 }
 
 /**

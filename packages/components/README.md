@@ -89,6 +89,10 @@ src/
     解析后 `theme.components.button.font[level]` 是整份文字样式（字号 / 行高 / 字重 / 字距 / 颜色）；
   - **`ThemeConfig` 不含原子层**：`{ themeName, semantic, components }`。原子层是静态原始值，
     需要时直接 `import { primitive }`；按压 / 禁用透明度已经在语义层 `semantic.opacity`；
+  - **引用共享**：同一主题名（无覆盖）全局只有**一份** `ThemeConfig`（`getTheme` 缓存），
+    `theme.semantic` / `theme.components.button` 都是它的子对象、不再拷贝；
+    覆盖（`overrides` / `withOverrides`）才产生新对象，由调用方 `useMemo` 兜住；
+    大屏换算后的静态样式也按 `(样式表, 系数)` **全局缓存**，所有同类组件共用一份；
   - **全局 token 用点分字符串索引**：如 `icon.color: 'semantic.color.text.primary'`、
     语义层 `primary: 'primitive.color.yellow.500'`。**不要在字典里直接 import `primitive` 取值**，
     否则值在模块加载时就被钉死，换主题 / 覆盖都不会生效；

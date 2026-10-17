@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native';
+import { ActivityIndicator, Dimensions, Pressable, StyleSheet, Text } from 'react-native';
 import type { StyleProp, ViewStyle } from 'react-native';
-import { fireEvent, render } from '@testing-library/react-native';
+import { act, fireEvent, render } from '@testing-library/react-native';
 import { QButton } from '@/button';
 import type { QButtonProps } from '@/button';
 import * as buttonStyleModule from '@/button/style';
 import { getTheme, DEFAULT_THEME_NAME } from '@/design';
+import { QLargeScreenProvider } from '@/utils';
+
+/** 大屏换算的测试窗口（基准 / 桌面） */
+const BASE_WINDOW = { width: 375, height: 667, scale: 2, fontScale: 2 };
+const WIDE_WINDOW = { width: 1024, height: 768, scale: 2, fontScale: 2 };
 
 /** 默认主题（黄）——无 `QThemeProvider` 时组件读到的就是它。 */
 const theme = getTheme(DEFAULT_THEME_NAME);
@@ -293,5 +298,39 @@ describe('QButton 交互', () => {
     );
 
     spy.mockRestore();
+  });
+});
+
+describe('大屏换算', () => {
+  afterEach(() => {
+    act(() => Dimensions.set({ window: BASE_WINDOW, screen: BASE_WINDOW }));
+  });
+
+  it('按窗口宽度整体放大：高度 / 内边距 / 圆角 / 字号同系数', () => {
+    Dimensions.set({ window: WIDE_WINDOW, screen: WIDE_WINDOW });
+
+    const result = render(<QButton testID="btn" text="A" />);
+    const container = StyleSheet.flatten(result.getByTestId('btn').props.style);
+    const text = StyleSheet.flatten(result.getByText('A').props.style);
+    // 1024 > 880 → 1.4；换算结果向下取整
+    const height = Math.floor(qButtonTokens.height[6] * 1.4);
+
+    expect(container.height).toBe(height);
+    expect(container.borderRadius).toBe(Math.floor((qButtonTokens.height[6] / 2) * 1.4));
+    expect(container.paddingHorizontal).toBe(Math.floor(qButtonTokens.paddingHorizontal[6] * 1.4));
+    expect(text.fontSize).toBe(Math.floor(qButtonTokens.font[6].fontSize * 1.4));
+    expect(text.lineHeight).toBe(Math.floor(qButtonTokens.font[6].lineHeight * 1.4));
+  });
+
+  it('QLargeScreenProvider enabled={false} 时保持 1 倍', () => {
+    Dimensions.set({ window: WIDE_WINDOW, screen: WIDE_WINDOW });
+
+    const { getByTestId } = render(
+      <QLargeScreenProvider enabled={false}>
+        <QButton testID="btn" text="A" />
+      </QLargeScreenProvider>,
+    );
+
+    expect(StyleSheet.flatten(getByTestId('btn').props.style).height).toBe(qButtonTokens.height[6]);
   });
 });

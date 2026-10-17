@@ -1,6 +1,19 @@
-import { StyleSheet, type StyleProp, type TextStyle, type ViewStyle } from 'react-native';
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import type { ThemeConfig } from '@/design/theme';
 import type { QButtonProps } from './type';
+
+/** 静态样式表（**朴素对象**，保留数值以便大屏换算）。 */
+export interface ButtonStyles {
+  container: ViewStyle;
+  pressed: ViewStyle;
+  leading: ViewStyle;
+  trailing: ViewStyle;
+  content: ViewStyle;
+  row: ViewStyle;
+  text: TextStyle;
+  subText: TextStyle;
+  frame: ViewStyle;
+}
 
 /**
  * 与变体无关的静态样式。
@@ -8,13 +21,17 @@ import type { QButtonProps } from './type';
  * ⚠️ 这里是**工厂**而不是模块级常量：颜色与字体都来自当前主题，
  * 必须在渲染时（`useTheme()` 之后）才能确定，否则切主题不生效。
  *
- * 每次调用都 `StyleSheet.create` 一次比较贵，所以外面有 `buttonStylesOf()` 按主题对象缓存。
+ * ⚠️ 返回**朴素对象**（不是 `StyleSheet.create` 的结果）：大屏换算必须在 `create` 之前完成
+ * （原生端 `create` 返回不透明 id，拿不到数值），换算交给
+ * `useLargeScreenStyles(buttonStylesOf(theme))`。
+ *
+ * 每次调用都比较贵，所以外面有 `buttonStylesOf()` 按主题对象缓存。
  */
-export function createButtonStyles(theme: ThemeConfig) {
+export function createButtonStyles(theme: ThemeConfig): ButtonStyles {
   const { components, primitive } = theme;
   const button = components.button;
 
-  return StyleSheet.create({
+  return {
     container: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -69,11 +86,8 @@ export function createButtonStyles(theme: ThemeConfig) {
       left: 0,
       borderWidth: primitive.stroke.thin,
     },
-  });
+  };
 }
-
-/** 静态样式的类型（`buttonStylesOf` 的返回值）。 */
-export type ButtonStyles = ReturnType<typeof createButtonStyles>;
 
 /**
  * 按主题缓存静态样式。

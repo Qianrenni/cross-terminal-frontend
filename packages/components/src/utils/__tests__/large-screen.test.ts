@@ -75,14 +75,28 @@ describe('scaleValue', () => {
     expect(scaleValue(16, 1.5)).toBe(24);
   });
 
+  it('结果向下取整（像素不保留小数）', () => {
+    expect(scaleValue(7, 1.4)).toBe(9); // 9.8 → 9
+    expect(scaleValue(20, 1.03)).toBe(20); // 20.6 → 20
+    expect(scaleValue(17, 1.4)).toBe(23); // 23.8 → 23
+  });
+
   it('0 返回正 0', () => {
     const scaled = scaleValue(0, 1.4);
     expect(scaled).toBe(0);
     expect(Object.is(scaled, 0)).toBe(true);
   });
 
-  it('负值照常乘（负 margin 是合法用法）', () => {
+  it('负值先取绝对值取整再还原符号（不是 floor）', () => {
     expect(scaleValue(-8, 1.5)).toBe(-12);
+    expect(scaleValue(-2, 1.4)).toBe(-2); // abs: 2.8 → 2 → -2（floor 会是 -3）
+  });
+
+  it('0.几 换算后取整为 0 时保留原值（不把字距 / 细线抹成 0）', () => {
+    expect(scaleValue(0.5, 1.4)).toBe(0.5); // 0.7 → 0 → 回退原值
+    expect(scaleValue(0.75, 1.03)).toBe(0.75);
+    expect(scaleValue(-0.5, 1.4)).toBe(-0.5);
+    expect(scaleValue(0.5, 1)).toBe(0.5);
   });
 });
 
@@ -95,6 +109,7 @@ describe('scaleStyle', () => {
         {
           width: 20,
           height: 10,
+          size: 20,
           minWidth: 4,
           padding: 16,
           paddingHorizontal: 8,
@@ -117,18 +132,19 @@ describe('scaleStyle', () => {
     ).toEqual({
       width: 30,
       height: 15,
+      size: 30,
       minWidth: 6,
       padding: 24,
       paddingHorizontal: 12,
       marginTop: -12,
       marginStart: 3,
       gap: 9,
-      rowGap: 4.5,
+      rowGap: 4,
       fontSize: 21,
       lineHeight: 30,
-      letterSpacing: 0.75,
+      letterSpacing: 0.5,
       borderRadius: 18,
-      borderWidth: 1.5,
+      borderWidth: 1,
       borderBottomStartRadius: 6,
       elevation: 3,
       shadowRadius: 12,
@@ -169,7 +185,7 @@ describe('scaleStyle', () => {
       ),
     ).toEqual({
       shadowOffset: { width: 3, height: 6 },
-      textShadowOffset: { width: 1.5, height: 1.5 },
+      textShadowOffset: { width: 1, height: 1 },
     });
   });
 

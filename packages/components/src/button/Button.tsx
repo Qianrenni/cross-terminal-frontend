@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import { useThemeConfig } from '@/design/context';
 import { hotzoneLayerStyle, normalizeHotzoneInset } from '@/hotzone/style';
+import { useLargeScreenStyle, useLargeScreenStyles } from '@/utils/large-screen';
 import { buttonStylesOf, buttonVariantStyle } from './style';
 import type { QButtonProps } from './type';
 
@@ -30,16 +31,20 @@ function QButtonImpl({
    * 优先用组件自己的 `theme` prop（局部覆盖），否则跟随 `QThemeProvider`。
    */
   const { theme } = useThemeConfig(themeOverride, 'button');
-  const styles = buttonStylesOf(theme);
+  /** 大屏换算：静态样式由 hook 统一处理，组件不感知系数 */
+  const styles = useLargeScreenStyles(buttonStylesOf(theme));
 
   /**
    * 变体样式：每次调用都会新建一个数组 + 一个对象，而结果只由这几个值决定，所以缓存。
    * ⚠️ `style` 若是调用方每次重渲染新建的数组，本缓存会一直失效 —— 那是调用方的责任。
    */
-  const { container, frame, textStyle, subTextStyle, foreground, subtle } = useMemo(
+  const variant = useMemo(
     () => buttonVariantStyle(theme, { level, type, inactive, style }),
     [theme, level, type, inactive, style],
   );
+  /** 整份变体样式（内联数值 + 静态样式）统一换算一次 */
+  const { container, frame, textStyle, subTextStyle, foreground, subtle } =
+    useLargeScreenStyle(variant);
 
   /**
    * 热区层：几何复用 `QHotzone`，只在**至少一条边 > 0** 时渲染。
@@ -53,6 +58,9 @@ function QButtonImpl({
     const expanded = edges.top > 0 || edges.right > 0 || edges.bottom > 0 || edges.left > 0;
     return expanded ? hotzoneLayerStyle(insets) : undefined;
   }, [insets]);
+
+  /** 热区也是长度，跟着大屏一起换算 */
+  const scaledHotzoneLayer = useLargeScreenStyle(hotzoneLayer);
 
   // 这里刻意**没有**用 useCallback 包 `Pressable` 的 style 回调：
   // Pressable 自身没有 memo，回调引用变不变都不会省下渲染，包了只是给依赖数组添维护成本。
@@ -68,7 +76,7 @@ function QButtonImpl({
       style={({ pressed }) => [container, pressed && !inactive && styles.pressed]}
     >
       {/* ① 热区触控层：绝对定位向外扩，不占布局（渲染在内容之前，不遮内容） */}
-      {hotzoneLayer != null && <View style={hotzoneLayer} />}
+      {scaledHotzoneLayer != null && <View style={scaledHotzoneLayer} />}
 
       {loading ? (
         <ActivityIndicator size="small" color={foreground} style={styles.leading} />

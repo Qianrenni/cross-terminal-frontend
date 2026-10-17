@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useWindowDimensions } from 'react-native';
+import React, { createContext, use, useMemo, useSyncExternalStore, type ReactNode } from 'react';
+import { Dimensions, type ScaledSize } from 'react-native';
 
 /**
  * 大屏适配：把 style 里的**长度类数值**按屏幕宽度整体缩放。
@@ -17,6 +17,11 @@ import { useWindowDimensions } from 'react-native';
  *
  * 区间**左闭右开**，也就是每个分界点归属**后一档**（例如 375 归「不缩放」、800 归 1.2）。
  * 880 是唯一例外：它仍属 1.2 那档，> 880 才跳到 1.4。
+ *
+ * **取整**：换算结果一律向下取整（像素不保留小数）；负值先取绝对值取整，再还原符号
+ * （`-2.8 → -2`，而不是 `floor(-2.8) = -3`）。
+ * 如果取整后是 `0`（例如 `0.5 × 1.4 = 0.7 → 0`），则**保留原值**（`0.5`），
+ * 否则细线 / 字距这类小于 1 的值会被抹成 0。
  *
  * ⚠️ 这是**分段常量**，所以分界点上有**跳变**（413 处从 1 跳到约 1.057、440 处回落到 1.03）。
  * 那是规则本身如此，不是实现取整造成的 —— 别「顺手修正」成连续函数。
@@ -48,10 +53,44 @@ import { useWindowDimensions } from 'react-native';
  * ```
  *
  * 不依赖 React 的地方直接用纯函数：`scaleStyles(RAW_STYLES, largeScreenScale(1024))`。
+ *
+ * ## 全局缓存
+ *
+ * `Dimensions` **只订阅一次**（模块级），**系数**存在全局快照里，组件通过
+ * `useSyncExternalStore` 共享；宽度只在回调里用一下算系数，不保留。
  */
 
 /** 换算基准宽度。 */
 export const LARGE_SCREEN_BASE_WIDTH = 375;
+
+/**
+ * 大屏换算开关（默认 `true`）。
+ *
+ * 组件默认按窗口宽度换算；需要「固定 1 倍」时（如文档站 / 预览环境）
+ * 用 `QLargeScreenProvider enabled={false}` 包一层即可，不用改任何组件。
+ */
+const LargeScreenEnabledContext = createContext(true);
+
+/** `QLargeScreenProvider` 的属性。 */
+export interface QLargeScreenProviderProps {
+  /** `false` 时 `useLargeScreenScale()` 恒为 1（完全关闭换算） */
+  enabled?: boolean;
+  children?: ReactNode;
+}
+
+/**
+ * 大屏换算开关的 Provider。
+ *
+ * React 19 写法：Context 本身作为 Provider（`<Context value>`）。
+ */
+export function QLargeScreenProvider({ enabled = true, children }: QLargeScreenProviderProps) {
+  return <LargeScreenEnabledContext value={enabled}>{children}</LargeScreenEnabledContext>;
+}
+
+/** 当前是否启用大屏换算（不包 Provider 时默认 `true`）。 */
+export function useLargeScreenEnabled(): boolean {
+  return use(LargeScreenEnabledContext);
+}
 
 /**
  * 需要换算的数值属性（白名单）。
@@ -68,6 +107,8 @@ const SCALABLE_NUMERIC_KEYS: ReadonlySet<string> = new Set([
   'maxWidth',
   'maxHeight',
   'flexBasis',
+  // 图标 token 用 `size` 表示边长（不是 RN style 键，但也是长度；`strokeWidth` 是 viewBox 单位，不在此列）
+  'size',
   // —— 定位 ——
   'top',
   'right',
@@ -134,7 +175,7 @@ const SCALABLE_NUMERIC_KEYS: ReadonlySet<string> = new Set([
  * 非法输入（`NaN` / `Infinity` / `<= 0`，比如首帧拿不到宽度）一律退回 `1`，
  * 宁可不错缩放。
  */
-export function largeScreenScale(width: number): number {
+function computeScale(width: number): number {
   if (!Number.isFinite(width) || width <= 0) return 1;
   if (width < 375) return width / LARGE_SCREEN_BASE_WIDTH;
   if (width < 413) return 1;
@@ -144,9 +185,60 @@ export function largeScreenScale(width: number): number {
   return 1.4;
 }
 
-/** 换算单个数值。`0` 直接返回（省一次乘法，也避免出现 `-0`）。 */
+/**
+ * 按屏幕宽度算缩放系数（纯函数，不做缓存）。
+ *
+ * 组件不要直接调它 —— 用 `useLargeScreenScale()`，那里走的是**全局缓存好的系数**。
+ */
+export function largeScreenScale(width: number): number {
+  return computeScale(width);
+}
+
+/**
+ * 全局缓存的**系数**（不是宽度）。
+ *
+ * - `Dimensions` 只订阅一次，宽度只在回调里用一下，算出系数就丢掉；
+ * - 系数没变就不通知任何组件（同一档位内改窗口宽度不会引发重渲染）。
+ */
+let currentScale = computeScale(Dimensions.get('window').width);
+const scaleListeners = new Set<() => void>();
+
+Dimensions.addEventListener('change', ({ window }: { window: ScaledSize }) => {
+  const nextScale = computeScale(window.width);
+  if (nextScale === currentScale) return;
+
+  currentScale = nextScale;
+  scaleListeners.forEach((listener) => listener());
+});
+
+/** 订阅全局系数（`useSyncExternalStore` 需要）。 */
+function subscribeScale(listener: () => void): () => void {
+  scaleListeners.add(listener);
+
+  return () => {
+    scaleListeners.delete(listener);
+  };
+}
+
+/** 读取全局系数快照（服务端 / 首次渲染同值）。 */
+function getScaleSnapshot(): number {
+  return currentScale;
+}
+
+/**
+ * 换算单个数值。
+ *
+ * 换算结果一律**向下取整**（像素不保留小数）；负数先取绝对值取整再还原符号：
+ * `-2.8 → -2`（而不是 `floor(-2.8) = -3`，否则负 margin / 负偏移会比预期多跑一像素）。
+ * 取整后为 `0` 时（`0.5 × 1.4 = 0.7`）**保留原值**，避免把字距 / 细线抹掉。
+ * `0` 直接返回，同时避开 `-0`。
+ */
 export function scaleValue(value: number, scale: number): number {
-  return value === 0 ? 0 : value * scale;
+  if (value === 0) return 0;
+  const scaled = Math.floor(Math.abs(value) * scale);
+  // 0.几 乘完取整成 0 → 保留原值（不能把 0.5 变成 0）
+  if (scaled === 0) return value;
+  return value < 0 ? -scaled : scaled;
 }
 
 /** 递归换算一层样式对象；不认识的键原样保留。 */
@@ -210,14 +302,17 @@ export function scaleStyles<T extends object>(styles: T, scale: number): T {
 }
 
 /**
- * 当前窗口宽度对应的缩放系数。
+ * 当前缩放系数。
  *
- * 用 `useWindowDimensions` 而不是 `Dimensions.get`：旋转 / 分屏 / 浏览器改窗口时会跟着更新。
+ * 直接读**全局缓存的系数**（见上方 `currentScale`）：全部组件共享同一个 Dimensions 监听，
+ * 同一档位内宽度变化不会引发重渲染。
+ * 被 `QLargeScreenProvider enabled={false}` 包住时恒为 1。
  */
 export function useLargeScreenScale(): number {
-  const { width } = useWindowDimensions();
+  const scale = useSyncExternalStore(subscribeScale, getScaleSnapshot, getScaleSnapshot);
+  const enabled = useLargeScreenEnabled();
 
-  return largeScreenScale(width);
+  return enabled ? scale : 1;
 }
 
 /**
@@ -229,4 +324,35 @@ export function useLargeScreenStyles<T extends object>(styles: T): T {
   const scale = useLargeScreenScale();
 
   return useMemo(() => scaleStyles(styles, scale), [styles, scale]);
+}
+
+/**
+ * 换算**单个** style（对象 / 样式数组都行），开关与系数全在 hook 内部处理。
+ *
+ * 组件不需要自己拿系数：
+ *
+ * ```tsx
+ * const variant = useMemo(() => buttonVariantStyle(theme, props), [theme, props]);
+ * const { container } = useLargeScreenStyle(variant);
+ * ```
+ */
+export function useLargeScreenStyle<T>(style: T): T {
+  const scale = useLargeScreenScale();
+
+  return useMemo(() => scaleStyle(style, scale), [style, scale]);
+}
+
+/**
+ * 把**单个数值**按当前大屏系数换算（开关与外扩规则同 `scaleValue`）。
+ *
+ * 适合组件里的非 style 数值（热区外扩量、自定义几何参数等）：
+ *
+ * ```tsx
+ * const gap = useLargeScreenValue(8); // 大屏下按当前系数取整，关闭时原样返回
+ * ```
+ */
+export function useLargeScreenValue(value: number): number {
+  const scale = useLargeScreenScale();
+
+  return useMemo(() => scaleValue(value, scale), [value, scale]);
 }

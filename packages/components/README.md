@@ -21,7 +21,7 @@ src/
 ├── utils/                # 与具体组件无关的通用工具
 │   ├── index.ts              # 出口
 │   ├── type.ts               # DeepPartial / DeepReadonly / … 类型工具
-│   └── large-screen.ts       # 大屏适配：按屏幕宽度缩放 style 里的长度类数值
+│   └── large-screen.tsx     # 大屏适配：按屏幕宽度缩放 style 里的长度类数值（含开关 Provider）
 ├── testUtils/case.ts     # 快照用例通用类型 Case<T> 与生成器（testCase / matrix）
 ├── icon/                 # 图标（图标数据 + 取 token + 实现）
 │   ├── index.ts              # 出口
@@ -119,6 +119,21 @@ src/
     组件的 `style.ts` 就用它；`CommonProps.theme` 可给单个组件覆盖主题
     （优先级：`theme` prop > `useThemeConfig` 的 `overrides` > `QThemeProvider` > 默认黄）；
   - 组件的行为常量（如 level → 几何档位的对应关系）**不属于**主题，留在组件实现里；
+
+- **大屏适配（`utils/large-screen.tsx`）**：按窗口宽度把长度类数值整体缩放
+  （基准 375，>880 为 1.4 倍；结果**向下取整**、负值先取绝对值再取整；
+  `Dimensions` 只订阅一次，**系数**走全局缓存）。`QButton` / `QIcon` 已接入：
+
+  ```tsx
+  // 组件里拿不到系数，也不传系数：缩放全在 hook 内部完成
+  const styles = useLargeScreenStyles(RAW_STYLES); // 一组命名样式（静态表）
+  const scaled = useLargeScreenStyle(rawStyle); // 单个 style / 样式数组 / 计算结果对象
+  const gap = useLargeScreenValue(8); // 非 style 的单个数值
+  ```
+
+  不想缩放时用 `<QLargeScreenProvider enabled={false}>` 包一层即可（默认开启）；
+  docs 顶栏的「大屏转换」开关就是这个 Provider 的现场演示。
+  ⚠️ 所以 `style.ts` 返回的是**朴素对象**（不是 `StyleSheet.create` 的 id），否则原生端拿不到数值。
 
 - **路径别名**：组件库内 `@/xxx` 即 `src/xxx`（如 `@/design`、`@/button/type`）。
   tsconfig 的 `paths` **只影响类型检查**，运行时必须各工具链单独配：

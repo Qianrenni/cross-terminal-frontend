@@ -2,6 +2,21 @@
 
 构建与发布脚本。全部是零依赖的 Node ESM 脚本（Node ≥ 20，使用内置 `fetch` / `FormData` / `Blob`）。
 
+## 提交信息校验（git 钩子用）
+
+`verify-commit-msg.mjs` 由 `.husky/commit-msg` 调用，强制提交信息格式：
+
+```text
+[改动][影响] 摘要
+
+# 例：
+[design][button] 三层 token 改成字典，圆角按高度算
+```
+
+- `Merge` / `Revert` / `fixup!` / `squash!` 开头自动放行；
+- 首行 ≤ 100 字符；
+- 手动验证：`node scripts/verify-commit-msg.mjs <某个文件>`
+
 ## 一条命令构建 + 发布
 
 ```powershell

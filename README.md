@@ -117,7 +117,7 @@ primitive.ts（原子层，一个巨大字典：颜色 / 字号 / 行高 / 间�
       ↓ 颜色写点分字符串，运行时解析
 semantic.ts（语义层：brand / text / status / background / stroke + 字体角色）
       ↓
-components/<组件>.ts（组件层：几何直接写数值，颜色写字符串）
+components/<组件>.ts（组件层：几何直接写数值，颜色 / 排版写路径字符串）
 ```
 
 - `theme.ts` 在运行时把字符串解析成值，并叠加主题与覆盖；

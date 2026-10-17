@@ -70,10 +70,10 @@ src/
 - **设计系统（`src/design/`）分三层，全部是字典**，组件只读第 ②③ 层：
 
   ```
-  ① primitive.ts           一个巨大的字典，纯值      primitive.color.yellow['500'] → '#EAB308'
+  ① primitive.ts           一个巨大的字典，纯值      primitive.color.yellow['500'] → '#FFD100'
           ↓
   ② semantic.ts           颜色写点分字符串            semantic.color.brand.primary → 'primitive.color.yellow.500'
-  ③ components/<组件>.ts  几何直接写数值、颜色写字符串  components/button.ts → height { 1: 28 … 6: 48 }
+  ③ components/<组件>.ts  几何直接写数值、颜色 / 排版写路径  components/button.ts → height { 1: 28 … 6: 48 }
           ↓                （theme.ts 运行时把字符串变值 + 叠加主题 / 覆盖）
   getTheme('blue')        解析后的值                  theme.semantic.color.brand.primary → '#3B82F6'
   ```
@@ -83,8 +83,10 @@ src/
   | ① `primitive`  | `color`：`white/black/transparent`、`gray`(25~900)、`slate`(25~900)、11 条色相（`yellow/orange/brown/red/pink/purple/blue/cyan/teal/green/lime`，各 50~600）、`alpha.white`(15~60%)、`alpha.black`(2~93%)；`font`：`family{sans,brand,brandNumber}`（分平台）、`size`(9~42，键即 px)、`lineHeight`(14~60)、`weight`(4 档)；`spacing`(2px 网格)、`radius`、`stroke`、`size`、`shadow`、`opacity`                                                                                                                           | ❌ 静态共享               |
   | ② `semantic`   | `color.brand{primary,onPrimary,subtitle,onSubtitle,tertiary,onTertiary,onCombo,text{highlight,price}}`、`color.text{primary…inverse}`、`color.status{success,warning,error,info}`（各 `{default,onDefault,weak}`）、`color.promo{red,orange}`、`color.background{white,primary,secondary,tertiary,subtitleFill,disabled,cancel,mask,transparent}`、`color.stroke{white,default,secondary,primary}`、`font.sys{display,heading,title,body,caption,label}`、`font.number{5xl…xs}`、`font.brand{heading,title,body,caption}` | ✅ 品牌那几条路径按主题换 |
   | ③ `components` | **一个组件一个文件**：`button.ts`（`height` 按 level 1~6 / `paddingHorizontal` 按 level 1~6 / `lineGap` / `iconGap` / `textGap`）、`icon.ts`（`size` / `color` / `strokeWidth`）；`index.ts` 汇总                                                                                                                                                                                                                                                                                                                         | ✅（颜色跟着语义层走）    |
-  - **组件层几何直接写数值**：`height: { 1: 28, … 6: 48 }`、`paddingHorizontal: { 1: 6, … 6: 16 }`
+  - **组件层几何直接写数值**：`height: { 1: 28, … 6: 48 }`、`paddingHorizontal: { 1: 10, … 6: 24 }`
     —— 不去 `import` 全局 token，改按钮就改这一个文件；
+  - **组件层排版写语义层路径**：`font: { 1: 'semantic.font.sys.label.2xs', … 6: '…label.xl' }`，
+    解析后 `theme.components.button.font[level]` 是整份文字样式（字号 / 行高 / 字重 / 字距 / 颜色）；
   - **全局 token 用点分字符串索引**：如 `icon.color: 'semantic.color.text.primary'`、
     语义层 `primary: 'primitive.color.yellow.500'`。**不要在字典里直接 import `primitive` 取值**，
     否则值在模块加载时就被钉死，换主题 / 覆盖都不会生效；
@@ -116,7 +118,7 @@ src/
   - `useThemeConfig(theme?, componentName, overrides?)` → `{ theme, global, tokens }`，
     组件的 `style.ts` 就用它；`CommonProps.theme` 可给单个组件覆盖主题
     （优先级：`theme` prop > `useThemeConfig` 的 `overrides` > `QThemeProvider` > 默认黄）；
-  - 组件的行为常量（如 level → 强调强度的映射）**不属于**主题，留在组件实现里；
+  - 组件的行为常量（如 level → 几何档位的对应关系）**不属于**主题，留在组件实现里；
 
 - **路径别名**：组件库内 `@/xxx` 即 `src/xxx`（如 `@/design`、`@/button/type`）。
   tsconfig 的 `paths` **只影响类型检查**，运行时必须各工具链单独配：
@@ -214,14 +216,15 @@ vite 配置里都写了详细注释与补丁，要点：
 
 ## 已实现
 
-| 组件       | 状态 | 备注                                                                                                                                   |
-| ---------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `QIcon`    | ✅   | `name` / `size` / `color`① / `weight` / `onPress`                                                                                      |
-| `QHotzone` | ✅   | `onPress` / `inset` / `disabled`；**不做测量**，外扩量由调用方给定（几何见 `src/hotzone/style.ts`）                                    |
-| `QButton`  | ✅   | `level` / `type` / `text` / `subText` / `suffixText` / `subSuffixText` / `disabled` / `leftIcon` / `rightIcon` / `loading` / `onPress` |
+| 组件       | 状态 | 备注                                                                                                                                               |
+| ---------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `QIcon`    | ✅   | `name` / `size` / `color`① / `weight` / `onPress`                                                                                                  |
+| `QHotzone` | ✅   | `onPress` / `inset` / `disabled`；**不做测量**，外扩量由调用方给定（几何见 `src/hotzone/style.ts`）                                                |
+| `QButton`  | ✅   | `level` / `type` / `text` / `subText` / `suffixText` / `subSuffixText` / `disabled` / `leftIcon` / `rightIcon` / `loading` / `insets`② / `onPress` |
 
 > ① `color` 是 `QIcon` 相对 `COMPONENT.md` 的**增加项**：`QButton` 必须把前景色传给图标
 > （主按钮上是白图标、描边按钮上是品牌色），而 `CommonProps.style` 的类型是 `ViewStyle`，没有 `color` 字段，传不进去。
+> ② `insets` 是 `QButton` 的**增加项**：复用 `QHotzone` 的几何，在按钮视觉区域外扩出可点击范围（不影响布局）。
 
 ### 与 `COMPONENT.md` 的偏差（💡 待收敛）
 
@@ -232,20 +235,22 @@ vite 配置里都写了详细注释与补丁，要点：
 3. **`IconName` 的归属**：`COMPONENT.md` 把它列在「公共类型」里，实现上它定义在 `src/icon/type.ts`
    （因为它就是字形表的 key），并从包根导出，仍可按
    `import { IconName } from '@cross-terminal/components'` 使用。
-4. **视觉映射**：`level`（1~6 优先级）目前映射为品牌色透明度档位，`type` 决定填充方式；
-   这套映射是占位方案，待设计系统确认后替换。
+4. **视觉映射**：`type` 决定填充方式；`level`（1~6 优先级）只映射几何（高度 / 左右内边距），
+   颜色固定取语义层品牌原色，不做档位混色。
 
 ### `QButton` 的形状（三条硬规则）
 
-1. **`level` 决定高度与左右内边距**：`theme.components.button.height = { 1: 28, …, 6: 48 }`、
-   `paddingHorizontal = { 1: 6, …, 6: 16 }` —— 等级越高，按钮越高、左右越宽。
+1. **`level` 决定高度、左右内边距与字号**：`theme.components.button.height = { 1: 28, …, 6: 48 }`、
+   `paddingHorizontal = { 1: 10, …, 6: 24 }`、`fontSize = { 1: 12, …, 6: 17 }` ——
+   等级越高，按钮越高、左右越宽、字越大。
+   **颜色不随 `level` 变**：同一 `type` 在任意档位都是同一个品牌原色。
 2. **圆角 = 高度的一半（半圆端）**：`borderRadius: height[level] / 2`，所以每一档都是**标准胶囊**。
    ⚠️ 别用 `primitive.radius.full`（999）来「假装胶囊」——圆角超过高度一半时会被按宽高分别裁剪，
    渲染成**椭圆**（Android 上尤其明显）。
 3. **`secondary` / `tertiary` 的线框是绝对定位节点，不是容器的 `borderWidth`**：
    边框会吃掉内容盒（内边距实际变小），而线框只是视觉装饰，不该参与布局。
    所以 `buttonStyles.frame` 绝对定位铺满容器 + `pointerEvents="none"`（不占位、不抢触摸），
-   两种形态**只在颜色上不同**：`secondary` 用品牌色（随 `level` 变强调强度），
+   两种形态**只在颜色上不同**：`secondary` 用品牌原色，
    `tertiary` 用 `color.stroke.default`；`primary` 是实心块，不渲染线框节点。
 
 ## 使用

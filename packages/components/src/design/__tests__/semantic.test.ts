@@ -51,8 +51,8 @@ describe('语义层 semantic（路径字典）', () => {
     // 说明文字解析成次级文字色（语义引用被解析）
     expect(font.sys.caption.m.color).toBe(primitive.color.gray[600]);
 
-    // 系统字族不带 fontFamily；数字 / 品牌字族带
-    expect(font.sys.body.m.fontFamily).toBeUndefined();
+    // 所有字族都带 fontFamily（暂统一 PingFang SC）
+    expect(font.sys.body.m.fontFamily).toContain('PingFang SC');
     expect(font.number['5xl'].fontFamily).toBeDefined();
     expect(font.brand.heading.xl.fontFamily).toBeDefined();
   });
@@ -60,14 +60,19 @@ describe('语义层 semantic（路径字典）', () => {
   it('组件层：几何直接写数值，颜色写点分字符串', () => {
     // 组件层不 import 原子层，几何是「按钮自己的数值」
     expect(components.button.height[6]).toBe(48);
-    expect(components.button.paddingHorizontal[1]).toBe(6);
+    expect(components.button.paddingHorizontal[1]).toBe(10);
 
     const { button, icon } = theme.components;
     expect(button.height).toEqual({ 1: 28, 2: 32, 3: 36, 4: 40, 5: 44, 6: 48 });
-    expect(button.paddingHorizontal).toEqual({ 1: 6, 2: 8, 3: 10, 4: 12, 5: 14, 6: 16 });
-    expect(button.lineGap).toBe(2);
-    expect(button.iconGap).toBe(6);
-    expect(button.textGap).toBe(4);
+    expect(button.paddingHorizontal).toEqual({ 1: 10, 2: 12, 3: 15, 4: 18, 5: 20, 6: 24 });
+    // 排版引用语义层 font token，解析后是整份文字样式（level 越高字号越大）
+    expect(button.font[6]).toEqual(theme.semantic.font.sys.label.xl);
+    expect(button.font[1]).toEqual(theme.semantic.font.sys.label['2xs']);
+    expect(button.subFont[6]).toEqual(theme.semantic.font.sys.caption.l);
+    expect(button.font[1].fontSize as number).toBeLessThan(button.font[6].fontSize);
+    expect(button.lineGap).toBe(-2);
+    expect(button.iconGap).toBe(2);
+    expect(button.textGap).toBe(2);
 
     // 颜色是点分字符串，由主题解析成色值
     expect(components.icon.color).toBe('semantic.color.text.primary');

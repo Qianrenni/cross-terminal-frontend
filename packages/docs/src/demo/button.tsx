@@ -8,7 +8,7 @@ import type { ComponentDemo, DemoValues } from './types';
  *
  * 覆盖了 `QButtonProps` 的**全部** prop：
  * `level` / `type` / `text` / `subText` / `suffixText` / `subSuffixText` /
- * `disabled` / `leftIcon` / `rightIcon` / `loading` / `onPress` / `CommonProps` 三项。
+ * `disabled` / `leftIcon` / `rightIcon` / `loading` / `insets` / `onPress` / `CommonProps` 三项。
  *
  * `onPress` 没有做成控件（要打日志），改在预览区下方实时显示点击次数。
  */
@@ -31,7 +31,7 @@ const ICON_OPTIONS = [
 export const buttonDemo: ComponentDemo<QButtonProps> = {
   key: 'button',
   name: 'QButton',
-  description: '按钮。触发操作的主控件；level 决定强调强度、高度与左右内边距，type 决定填充方式。',
+  description: '按钮。触发操作的主控件；level 决定高度、左右内边距与字号，type 决定填充方式。',
   Component: QButton,
 
   controls: [
@@ -72,10 +72,21 @@ export const buttonDemo: ComponentDemo<QButtonProps> = {
       min: 1,
       max: 6,
       step: 1,
-      hint: '1~6，越高越强调、越高、左右内边距越大',
+      hint: '1~6，越高越高、左右内边距与字号越大（颜色不变）',
     },
     { kind: 'boolean', name: 'disabled', label: 'disabled', defaultValue: false },
     { kind: 'boolean', name: 'loading', label: 'loading', defaultValue: false },
+    {
+      kind: 'number',
+      name: 'insets',
+      label: 'insets',
+      defaultValue: 0,
+      omitWhen: 0,
+      min: 0,
+      max: 32,
+      step: 2,
+      hint: '热区：按钮外再扩出的点击范围（px），0 = 不扩；打开顶栏「热区」可看范围',
+    },
     {
       kind: 'select',
       name: 'icons',
@@ -113,6 +124,9 @@ export const buttonDemo: ComponentDemo<QButtonProps> = {
 
     const accessibilityLabel = String(values.accessibilityLabel ?? '');
     if (accessibilityLabel) props.accessibilityLabel = accessibilityLabel;
+
+    const insets = Number(values.insets ?? 0);
+    if (Number.isFinite(insets) && insets > 0) props.insets = insets;
 
     const icons = String(values.icons);
     if (icons === 'left' || icons === 'both') props.leftIcon = <Text>◀</Text>;

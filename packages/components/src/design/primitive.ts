@@ -50,15 +50,15 @@ export const primitive = {
       900: '#0F172A',
     },
 
-    /** 黄色系（**默认主题色**） */
+    /** 黄色系（**默认主题色「美团黄」**，主色 `500` = `#FFD100`） */
     yellow: {
-      50: '#FEFCE8',
-      100: '#FEF9C3',
-      200: '#FEF08A',
-      300: '#FDE047',
-      400: '#FACC15',
-      500: '#EAB308',
-      600: '#CA8A04',
+      50: '#FFFBE6',
+      100: '#FFF5BF',
+      200: '#FFED85',
+      300: '#FFE34D',
+      400: '#FFDA24',
+      500: '#FFD100',
+      600: '#D6A800',
     },
     orange: {
       50: '#FFF7ED',
@@ -185,25 +185,30 @@ export const primitive = {
   },
 
   font: {
-    /** 分平台字体栈：解析时由 `semantic.ts` 按当前平台选一条 */
+    /**
+     * 分平台字体栈：解析时由 `semantic.ts` 按当前平台选一条。
+     *
+     * ⚠️ 暂时统一用 **PingFang SC**（含数字字族）；后续确定品牌字体栈后只改这里。
+     * 非 Apple 平台没有 PingFang SC，会自然回退到系统字体（Android / Windows）。
+     */
     family: {
       sans: {
-        ios: 'System',
-        android: 'sans-serif',
-        web: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        default: 'System',
+        ios: 'PingFang SC',
+        android: 'PingFang SC',
+        web: '"PingFang SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        default: 'PingFang SC',
       },
       brand: {
-        ios: 'System',
-        android: 'sans-serif',
-        web: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        default: 'System',
+        ios: 'PingFang SC',
+        android: 'PingFang SC',
+        web: '"PingFang SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        default: 'PingFang SC',
       },
       brandNumber: {
-        ios: 'Menlo',
-        android: 'monospace',
-        web: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-        default: 'monospace',
+        ios: 'PingFang SC',
+        android: 'PingFang SC',
+        web: '"PingFang SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        default: 'PingFang SC',
       },
     },
     /** 字号：键就是 px 值 */

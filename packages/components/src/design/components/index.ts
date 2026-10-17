@@ -1,4 +1,5 @@
 import { buttonTokens } from './button';
+import type { ButtonTokenDict } from './button';
 import { iconTokens } from './icon';
 
 /**
@@ -22,8 +23,15 @@ export const components = {
   icon: iconTokens,
 };
 
-/** 组件层字典的类型（键 = 组件目录名）。 */
-export type ComponentDict = typeof components;
+/**
+ * 组件层字典的类型（键 = 组件目录名）。
+ *
+ * ⚠️ `button` 用解析后的 `ButtonTokenDict` 而不是 `typeof buttonTokens`：
+ * 源码里的 `font` / `subFont` 是 `semantic.font.*` 路径字符串，解析后是字体对象。
+ */
+export type ComponentDict = Omit<typeof components, 'button'> & {
+  button: ButtonTokenDict;
+};
 
 export { buttonTokens } from './button';
 export { iconTokens } from './icon';

@@ -198,6 +198,8 @@ export default defineConfig({
   server: {
     // rn-app 的 web 用 5173，这里错开
     port: 5174,
+    // 监听所有网卡（局域网 / 容器里也能访问），不再只绑 127.0.0.1
+    host: '0.0.0.0',
     open: false,
     fs: {
       // 允许访问工作区根目录：`@cross-terminal/components` 是 workspace 链接包，源码在本包之外

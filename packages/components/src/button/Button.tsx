@@ -78,14 +78,19 @@ function QButtonImpl({
       {/* ① 热区触控层：绝对定位向外扩，不占布局（渲染在内容之前，不遮内容） */}
       {scaledHotzoneLayer != null && <View style={scaledHotzoneLayer} />}
 
-      {loading ? (
-        <ActivityIndicator size="small" color={foreground} style={styles.leading} />
-      ) : (
-        leftIcon != null && <View style={styles.leading}>{leftIcon}</View>
-      )}
-
       <View style={styles.content}>
+        {/*
+          主行：左图标 / loading + 主文案 + 后缀文案 + 右图标。
+          ⚠️ 图标放在**主行里**，不是两行之外：双行按钮的图标应与主文案对齐，
+          而不是相对整个内容块垂直居中。
+        */}
         <View style={styles.row}>
+          {loading ? (
+            <ActivityIndicator size="small" color={foreground} style={styles.leading} />
+          ) : (
+            leftIcon != null && <View style={styles.leading}>{leftIcon}</View>
+          )}
+
           {text != null && (
             <Text style={[textStyle, { color: foreground }]} numberOfLines={1}>
               {text}
@@ -94,6 +99,8 @@ function QButtonImpl({
           {suffixText != null && (
             <Text style={[textStyle, { color: foreground }]}>{suffixText}</Text>
           )}
+
+          {rightIcon != null && <View style={styles.trailing}>{rightIcon}</View>}
         </View>
 
         {(subText != null || subSuffixText != null) && (
@@ -109,8 +116,6 @@ function QButtonImpl({
           </View>
         )}
       </View>
-
-      {rightIcon != null && <View style={styles.trailing}>{rightIcon}</View>}
 
       {/* 线框最后渲染，盖在背景与内容之上；`pointerEvents="none"` 让它不抢触摸 */}
       {frame != null && <View pointerEvents="none" style={frame} />}

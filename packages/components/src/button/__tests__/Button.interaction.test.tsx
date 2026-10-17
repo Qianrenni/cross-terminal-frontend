@@ -5,7 +5,7 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { QButton } from '@/button';
 import type { QButtonProps } from '@/button';
 import * as buttonStyleModule from '@/button/style';
-import { getTheme, DEFAULT_THEME_NAME, withAlpha } from '@/design';
+import { getTheme, DEFAULT_THEME_NAME } from '@/design';
 
 /** 默认主题（黄）——无 `QThemeProvider` 时组件读到的就是它。 */
 const theme = getTheme(DEFAULT_THEME_NAME);
@@ -100,16 +100,18 @@ describe('QButton 交互', () => {
     expect(getByTestId('btn').props.accessibilityLabel).toBe('提交订单按钮');
   });
 
-  it('level 影响强调强度：等级越高背景越不透明', () => {
+  it('颜色不按 level 混合：同一 type 在任意 level 下都是品牌原色', () => {
     const low = StyleSheet.flatten(
-      render(<QButton testID="low" text="A" level={1} />).getByTestId('low').props.style,
+      render(<QButton testID="low" text="A" level={1} type="primary" />).getByTestId('low').props
+        .style,
     );
     const high = StyleSheet.flatten(
-      render(<QButton testID="high" text="A" level={6} />).getByTestId('high').props.style,
+      render(<QButton testID="high" text="A" level={6} type="primary" />).getByTestId('high').props
+        .style,
     );
 
-    expect(low.backgroundColor).toBe(withAlpha(theme.semantic.color.brand.primary, 0.55));
-    expect(high.backgroundColor).toBe(withAlpha(theme.semantic.color.brand.primary, 1));
+    expect(low.backgroundColor).toBe(theme.semantic.color.brand.primary);
+    expect(high.backgroundColor).toBe(theme.semantic.color.brand.primary);
   });
 
   it('level 决定左右内边距：等级越高越宽', () => {
@@ -120,8 +122,8 @@ describe('QButton 交互', () => {
       render(<QButton testID="high" text="A" level={6} />).getByTestId('high').props.style,
     );
 
-    expect(low.paddingHorizontal).toBe(6);
-    expect(high.paddingHorizontal).toBe(16);
+    expect(low.paddingHorizontal).toBe(qButtonTokens.paddingHorizontal[1]);
+    expect(high.paddingHorizontal).toBe(qButtonTokens.paddingHorizontal[6]);
     expect(low.paddingHorizontal as number).toBeLessThan(high.paddingHorizontal as number);
   });
 
@@ -135,6 +137,33 @@ describe('QButton 交互', () => {
     expect(style.borderRadius).toBe(height / 2);
     // 别用「超大值假装胶囊」——超过高度一半会被按宽高分别裁剪成椭圆
     expect(style.borderRadius).not.toBe(theme.primitive.radius.full);
+  });
+
+  it('level 决定字号与行高：等级越高字越大（主文案 / 副文案各自分档）', () => {
+    const typographyOf = (level: QButtonProps['level']) => {
+      const result = render(<QButton text="提交" subText="已优惠 20 元" level={level} />);
+      const main = StyleSheet.flatten(result.getByText('提交').props.style);
+      const sub = StyleSheet.flatten(result.getByText('已优惠 20 元').props.style);
+      return { main, sub };
+    };
+
+    const level1 = typographyOf(1);
+    const level3 = typographyOf(3);
+    const level6 = typographyOf(6);
+
+    expect(level1.main.fontSize).toBe(qButtonTokens.font[1].fontSize);
+    expect(level1.main.lineHeight).toBe(qButtonTokens.font[1].lineHeight);
+    expect(level6.main.fontSize).toBe(qButtonTokens.font[6].fontSize);
+    expect(level6.main.lineHeight).toBe(qButtonTokens.font[6].lineHeight);
+
+    expect(level1.sub.fontSize).toBe(qButtonTokens.subFont[1].fontSize);
+    expect(level1.sub.lineHeight).toBe(qButtonTokens.subFont[1].lineHeight);
+    expect(level6.sub.fontSize).toBe(qButtonTokens.subFont[6].fontSize);
+
+    // 单调递增：档位之间真的不一样，而不是全部取同一个排版 token
+    expect(level1.main.fontSize as number).toBeLessThan(level3.main.fontSize as number);
+    expect(level3.main.fontSize as number).toBeLessThan(level6.main.fontSize as number);
+    expect(level1.sub.fontSize as number).toBeLessThan(level6.sub.fontSize as number);
   });
 
   it('type 决定填充方式：primary 实心无线框，secondary / tertiary 各有一个绝对定位线框', () => {
@@ -165,12 +194,42 @@ describe('QButton 交互', () => {
     expect(secondaryFrame.borderRadius).toBe(qButtonTokens.height[6] / 2);
 
     // 两种形态都有线框，只是颜色不同
-    expect(secondaryFrame.borderColor).toBe(withAlpha(theme.semantic.color.brand.primary, 1));
+    expect(secondaryFrame.borderColor).toBe(theme.semantic.color.brand.primary);
     expect(tertiaryFrame.borderColor).toBe(theme.semantic.color.stroke.default);
     expect(secondaryFrame.borderColor).not.toBe(tertiaryFrame.borderColor);
 
     // tertiary 仍是透明底
     expect(tertiary.container.backgroundColor).toBe('transparent');
+  });
+
+  it('insets 提供热区：绝对定位向外扩，且不影响按钮自身几何', () => {
+    const result = render(<QButton testID="btn" text="A" insets={12} />);
+    const container = StyleSheet.flatten(result.getByTestId('btn').props.style);
+    // primary 不渲染线框 → 唯一的绝对定位节点就是热区层
+    const layers = absoluteStylesOf(result);
+
+    expect(layers).toHaveLength(1);
+    expect(layers[0]).toMatchObject({
+      position: 'absolute',
+      top: -12,
+      right: -12,
+      bottom: -12,
+      left: -12,
+    });
+    // 布局不受影响：高度仍是 level 6 的 token
+    expect(container.height).toBe(qButtonTokens.height[6]);
+  });
+
+  it('insets 支持分边指定，缺省边为 0', () => {
+    const result = render(<QButton text="A" insets={{ top: 8, left: 4 }} />);
+
+    expect(absoluteStylesOf(result)[0]).toMatchObject({ top: -8, left: -4, right: 0, bottom: 0 });
+  });
+
+  it('不传 insets 或全 0 时不渲染热区节点', () => {
+    expect(absoluteStylesOf(render(<QButton text="A" />))).toHaveLength(0);
+    expect(absoluteStylesOf(render(<QButton text="A" insets={0} />))).toHaveLength(0);
+    expect(absoluteStylesOf(render(<QButton text="A" insets={{}} />))).toHaveLength(0);
   });
 
   it('文字色由变体决定，覆盖排版 token 自带的 color', () => {
@@ -229,7 +288,9 @@ describe('QButton 交互', () => {
     // 2) 改 level：影响样式 → 必须重算，且渲染结果要真的跟着变（memo 不能把更新挡住）
     fireEvent.press(getByTestId('change-level'));
     expect(spy.mock.calls.length).toBe(initial + 1);
-    expect(StyleSheet.flatten(getByTestId('btn').props.style).paddingHorizontal).toBe(12);
+    expect(StyleSheet.flatten(getByTestId('btn').props.style).paddingHorizontal).toBe(
+      qButtonTokens.paddingHorizontal[4],
+    );
 
     spy.mockRestore();
   });

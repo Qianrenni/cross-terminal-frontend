@@ -98,12 +98,12 @@ describe('主题：运行时切换', () => {
     );
 
     const before = StyleSheet.flatten(getByTestId('btn').props.style);
-    expect(before.backgroundColor).toBe('rgba(234, 179, 8, 1)'); // yellow[500] @ 100%
+    expect(before.backgroundColor).toBe(primitive.color.yellow[500]);
 
     fireEvent.press(getByTestId('switch'));
 
     const after = StyleSheet.flatten(getByTestId('btn').props.style);
-    expect(after.backgroundColor).toBe('rgba(59, 130, 246, 1)'); // blue[500] @ 100%
+    expect(after.backgroundColor).toBe(primitive.color.blue[500]);
   });
 
   it('setTheme() 之后父组件重渲染（prop 不变）不会把主题重置回去', () => {
@@ -211,10 +211,13 @@ describe('主题：按值覆盖组件层', () => {
     const theme = withOverrides(getTheme('yellow'), {
       'components.icon.color': 'semantic.color.brand.primary',
       'components.button.paddingHorizontal.1': 20,
+      // 排版也可以直接指向语义层 font token（解析后是整份文字样式）
+      'components.button.font.6': 'semantic.font.sys.label.s',
     });
 
     expect(theme.components.icon.color).toBe(theme.semantic.color.brand.primary);
     expect(theme.components.button.paddingHorizontal[1]).toBe(20);
+    expect(theme.components.button.font[6]).toEqual(theme.semantic.font.sys.label.s);
   });
 
   it('Provider 覆盖组件 token 后，组件实际渲染跟着变', () => {
@@ -288,7 +291,9 @@ describe('useThemeConfig：全局 token + 组件 token', () => {
 
     expect(getByTestId('brand').props.children).toBe(primitive.color.blue[500]);
     expect(getByTestId('height').props.children).toBe('48');
-    expect(getByTestId('padding').props.children).toBe('6');
+    expect(getByTestId('padding').props.children).toBe(
+      String(getTheme('blue').components.button.paddingHorizontal[1]),
+    );
   });
 
   it('传主题：优先于 Context', () => {
@@ -310,7 +315,9 @@ describe('useThemeConfig：全局 token + 组件 token', () => {
 
     expect(getByTestId('brand').props.children).toBe('#123456');
     // 几何 token 不受颜色覆盖影响
-    expect(getByTestId('padding').props.children).toBe('6');
+    expect(getByTestId('padding').props.children).toBe(
+      String(getTheme('yellow').components.button.paddingHorizontal[1]),
+    );
   });
 });
 
@@ -323,7 +330,7 @@ describe('CommonProps.theme：单个组件局部覆盖主题', () => {
     );
 
     const style = StyleSheet.flatten(getByTestId('btn').props.style);
-    expect(style.backgroundColor).toBe('rgba(239, 68, 68, 1)'); // red[500]
+    expect(style.backgroundColor).toBe(primitive.color.red[500]);
   });
 
   it('不传 theme 时继续跟随 Provider', () => {
@@ -334,7 +341,7 @@ describe('CommonProps.theme：单个组件局部覆盖主题', () => {
     );
 
     const style = StyleSheet.flatten(getByTestId('btn').props.style);
-    expect(style.backgroundColor).toBe('rgba(59, 130, 246, 1)');
+    expect(style.backgroundColor).toBe(primitive.color.blue[500]);
   });
 });
 

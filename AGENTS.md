@@ -43,7 +43,7 @@ pnpm --filter @cross-terminal/components run test -- -u  # 更新快照（改完
 ```text
 primitive.ts         ① 原子层：一个巨大字典（纯值，无含义）
 semantic.ts          ② 语义层：颜色写点分字符串，字体数字直接取原子层
-components/<组件>.ts ③ 组件层：几何直接写数值，颜色写点分字符串
+components/<组件>.ts ③ 组件层：几何直接写数值，颜色写点分字符串，排版写 'semantic.font.xxx' 路径
 theme.ts             解析器 + 7 套主题（yellow 默认 / orange / pink / blue / red / brown / green）+ overrides
 context.tsx          QThemeProvider / useTheme / useQTheme / useThemeConfig
 color.ts             withAlpha

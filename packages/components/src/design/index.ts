@@ -5,7 +5,7 @@
  *
  * ```ts
  * // ① 原子层：一个巨大的字典（纯值）
- * primitive.color.yellow['500']        // '#EAB308'
+ * primitive.color.yellow['500']        // '#FFD100'（美团黄）
  * primitive.spacing.m                  // 10
  *
  * // ② 语义层：一堆「路径」（动态读取原子层）

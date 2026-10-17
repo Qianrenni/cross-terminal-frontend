@@ -42,11 +42,11 @@ exports[`QButton 快照 primary/加载中 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -59,7 +59,7 @@ exports[`QButton 快照 primary/加载中 1`] = `
     size="small"
     style={
       {
-        "marginRight": 6,
+        "marginRight": 2,
       }
     }
   />
@@ -83,15 +83,20 @@ exports[`QButton 快照 primary/加载中 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -147,11 +152,11 @@ exports[`QButton 快照 primary/禁用 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -179,15 +184,20 @@ exports[`QButton 快照 primary/禁用 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -243,11 +253,11 @@ exports[`QButton 快照 primary/默认 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -275,15 +285,20 @@ exports[`QButton 快照 primary/默认 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -343,7 +358,7 @@ exports[`QButton 快照 secondary/加载中 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -352,11 +367,11 @@ exports[`QButton 快照 secondary/加载中 1`] = `
   }
 >
   <ActivityIndicator
-    color="#EAB308"
+    color="#FFD100"
     size="small"
     style={
       {
-        "marginRight": 6,
+        "marginRight": 2,
       }
     }
   />
@@ -380,17 +395,22 @@ exports[`QButton 快照 secondary/加载中 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -412,7 +432,7 @@ exports[`QButton 快照 secondary/加载中 1`] = `
           "top": 0,
         },
         {
-          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderColor": "#FFD100",
           "borderRadius": 24,
         },
       ]
@@ -467,7 +487,7 @@ exports[`QButton 快照 secondary/禁用 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -495,17 +515,22 @@ exports[`QButton 快照 secondary/禁用 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -527,7 +552,7 @@ exports[`QButton 快照 secondary/禁用 1`] = `
           "top": 0,
         },
         {
-          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderColor": "#FFD100",
           "borderRadius": 24,
         },
       ]
@@ -582,7 +607,7 @@ exports[`QButton 快照 secondary/默认 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -610,17 +635,22 @@ exports[`QButton 快照 secondary/默认 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -642,7 +672,7 @@ exports[`QButton 快照 secondary/默认 1`] = `
           "top": 0,
         },
         {
-          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderColor": "#FFD100",
           "borderRadius": 24,
         },
       ]
@@ -697,7 +727,7 @@ exports[`QButton 快照 tertiary/加载中 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -706,11 +736,11 @@ exports[`QButton 快照 tertiary/加载中 1`] = `
   }
 >
   <ActivityIndicator
-    color="#EAB308"
+    color="#FFD100"
     size="small"
     style={
       {
-        "marginRight": 6,
+        "marginRight": 2,
       }
     }
   />
@@ -734,17 +764,22 @@ exports[`QButton 快照 tertiary/加载中 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -821,7 +856,7 @@ exports[`QButton 快照 tertiary/禁用 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 0.5,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -849,17 +884,22 @@ exports[`QButton 快照 tertiary/禁用 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -936,7 +976,7 @@ exports[`QButton 快照 tertiary/默认 1`] = `
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -964,17 +1004,22 @@ exports[`QButton 快照 tertiary/默认 1`] = `
         numberOfLines={1}
         style={
           [
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
-            {
-              "color": "#EAB308",
+              "color": "#FFD100",
             },
           ]
         }
@@ -1047,11 +1092,11 @@ exports[`QButton 快照 仅副文案 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1079,15 +1124,20 @@ exports[`QButton 快照 仅副文案 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1110,16 +1160,21 @@ exports[`QButton 快照 仅副文案 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#4B5563",
-              "fontSize": 12,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 16,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 2,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": -2,
+              },
+              {
+                "color": "#4B5563",
+                "fontFamily": "PingFang SC",
+                "fontSize": 13,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+              },
+            ],
             {
               "color": "rgba(0, 0, 0, 0.6)",
             },
@@ -1175,11 +1230,11 @@ exports[`QButton 快照 仅后缀 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1207,15 +1262,20 @@ exports[`QButton 快照 仅后缀 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1227,15 +1287,20 @@ exports[`QButton 快照 仅后缀 1`] = `
       <Text
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1291,11 +1356,11 @@ exports[`QButton 快照 双行 + 前后缀 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1323,15 +1388,20 @@ exports[`QButton 快照 双行 + 前后缀 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1343,15 +1413,20 @@ exports[`QButton 快照 双行 + 前后缀 1`] = `
       <Text
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1374,16 +1449,21 @@ exports[`QButton 快照 双行 + 前后缀 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#4B5563",
-              "fontSize": 12,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 16,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 2,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": -2,
+              },
+              {
+                "color": "#4B5563",
+                "fontFamily": "PingFang SC",
+                "fontSize": 13,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+              },
+            ],
             {
               "color": "rgba(0, 0, 0, 0.6)",
             },
@@ -1395,16 +1475,21 @@ exports[`QButton 快照 双行 + 前后缀 1`] = `
       <Text
         style={
           [
-            {
-              "color": "#4B5563",
-              "fontSize": 12,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 16,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 2,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": -2,
+              },
+              {
+                "color": "#4B5563",
+                "fontFamily": "PingFang SC",
+                "fontSize": 13,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+              },
+            ],
             {
               "color": "rgba(0, 0, 0, 0.6)",
             },
@@ -1460,11 +1545,11 @@ exports[`QButton 快照 右图标 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1492,15 +1577,20 @@ exports[`QButton 快照 右图标 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1514,7 +1604,7 @@ exports[`QButton 快照 右图标 1`] = `
   <View
     style={
       {
-        "marginLeft": 6,
+        "marginLeft": 2,
       }
     }
   >
@@ -1567,11 +1657,11 @@ exports[`QButton 快照 左右图标 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1582,7 +1672,7 @@ exports[`QButton 快照 左右图标 1`] = `
   <View
     style={
       {
-        "marginRight": 6,
+        "marginRight": 2,
       }
     }
   >
@@ -1610,15 +1700,20 @@ exports[`QButton 快照 左右图标 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1632,7 +1727,7 @@ exports[`QButton 快照 左右图标 1`] = `
   <View
     style={
       {
-        "marginLeft": 6,
+        "marginLeft": 2,
       }
     }
   >
@@ -1685,11 +1780,11 @@ exports[`QButton 快照 左图标 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1700,7 +1795,7 @@ exports[`QButton 快照 左图标 1`] = `
   <View
     style={
       {
-        "marginRight": 6,
+        "marginRight": 2,
       }
     }
   >
@@ -1728,15 +1823,20 @@ exports[`QButton 快照 左图标 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1792,11 +1892,11 @@ exports[`QButton 快照 最低层级 L1 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 0.55)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 14,
           "height": 28,
           "opacity": 1,
-          "paddingHorizontal": 6,
+          "paddingHorizontal": 10,
         },
         undefined,
       ],
@@ -1824,15 +1924,20 @@ exports[`QButton 快照 最低层级 L1 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 12,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 16,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1888,11 +1993,11 @@ exports[`QButton 快照 自定义无障碍标签 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -1920,15 +2025,20 @@ exports[`QButton 快照 自定义无障碍标签 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },
@@ -1984,11 +2094,11 @@ exports[`QButton 快照 默认 1`] = `
           "justifyContent": "center",
         },
         {
-          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "backgroundColor": "#FFD100",
           "borderRadius": 24,
           "height": 48,
           "opacity": 1,
-          "paddingHorizontal": 16,
+          "paddingHorizontal": 24,
         },
         undefined,
       ],
@@ -2016,15 +2126,20 @@ exports[`QButton 快照 默认 1`] = `
         numberOfLines={1}
         style={
           [
-            {
-              "color": "#111827",
-              "fontSize": 15,
-              "fontWeight": "600",
-              "letterSpacing": 0,
-              "lineHeight": 22,
-              "marginLeft": 4,
-              "marginRight": 4,
-            },
+            [
+              {
+                "marginLeft": 2,
+                "marginRight": 2,
+              },
+              {
+                "color": "#111827",
+                "fontFamily": "PingFang SC",
+                "fontSize": 17,
+                "fontWeight": "600",
+                "letterSpacing": 0,
+                "lineHeight": 26,
+              },
+            ],
             {
               "color": "#111827",
             },

@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import type { FontToken } from '@/design/components/button';
+import type { HotzoneInset } from '@/hotzone/type';
 import type { CommonProps } from '@/types';
 
 /**
@@ -15,7 +17,11 @@ export interface QButtonTokens {
   height: Record<1 | 2 | 3 | 4 | 5 | 6, number>;
   /** 左右内边距（px），按 `level` 分档：等级越高越宽 */
   paddingHorizontal: Record<1 | 2 | 3 | 4 | 5 | 6, number>;
-  /** 双行时两行之间的间距（px） */
+  /** 主文案排版（语义层 `font.sys.label` 解析后的对象），按 `level` 分档 */
+  font: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
+  /** 副文案排版（语义层 `font.sys.caption` 解析后的对象），按 `level` 分档 */
+  subFont: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
+  /** 双行时第二行的上边距（px）：负值 = 向上收 */
   lineGap: number;
   /** 图标与文字之间的间距（px） */
   iconGap: number;
@@ -29,9 +35,9 @@ export interface QButtonTokens {
  * - 组件（导出）名：**`QButton`**；文件名：`Button.tsx`（文件名不带 `Q`）
  * - 事件：`onPress`（点击）
  *
- * 视觉映射（💡 占位，待设计系统接入）：
+ * 视觉映射：
  * - `type` 决定填充方式：`primary` 实心 / `secondary` 描边 / `tertiary` 纯文字；
- * - `level` 决定强调强度（数值越大越强调），当前映射为品牌色透明度档位。
+ * - `level` **只决定几何**：高度、左右内边距与胶囊圆角；颜色一律用品牌原色，不按 level 混合。
  *
  * @example
  * ```tsx
@@ -61,6 +67,17 @@ export interface QButtonProps extends CommonProps {
   rightIcon?: ReactNode;
   /** 加载态（为 true 时展示 loading 并禁用点击） */
   loading?: boolean;
+  /**
+   * 热区：在按钮**视觉区域之外**再扩出的可点击范围（px）。
+   *
+   * - `number` —— 四边相同（`12` 等价 `{ top: 12, right: 12, bottom: 12, left: 12 }`）；
+   * - 对象 —— 分别指定，缺省边为 0；
+   * - 不传 / 全 0 —— 不渲染热区节点。
+   *
+   * 几何复用 `QHotzone`（绝对定位触控层，不影响布局）。
+   * ⚠️ 与 RN `hitSlop` 同一天花板：热区**不能超出父容器边界**。
+   */
+  insets?: HotzoneInset;
   /** 点击 */
   onPress?: () => void;
 }

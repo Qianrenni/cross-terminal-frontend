@@ -7,11 +7,12 @@
 ```bash
 # 仓库根目录
 pnpm install
-pnpm docs:dev      # → http://localhost:5174
+pnpm docs:dev      # → http://localhost:5174（监听 0.0.0.0，局域网可访问）
 pnpm docs:build    # 产出 packages/docs/dist
 ```
 
 > 端口 5174：`rn-app` 的 web 占用了 5173。
+> 监听 `0.0.0.0:5174`，所以手机 / 同事机器用 `http://<本机 IP>:5174` 也能打开。
 
 ## 两个页面
 

@@ -39,7 +39,7 @@ interface TextStyleInput {
   letterSpacing?: number;
   /** 文字颜色（语义路径）；默认 `semantic.color.text.primary` */
   color?: string;
-  /** 字族；不传 = 系统默认 */
+  /** 字族；默认用 `sans` 字体栈（当前临时统一 PingFang SC） */
   fontFamily?: string;
 }
 
@@ -51,7 +51,7 @@ function text(
     weight,
     letterSpacing = 0,
     color = 'semantic.color.text.primary',
-    fontFamily: family,
+    fontFamily: family = sansFamily,
   }: TextStyleInput,
 ): {
   fontSize: number;
@@ -71,6 +71,7 @@ function text(
   return family == null ? base : { ...base, fontFamily: family };
 }
 
+const sansFamily = fontFamily('sans');
 const numberFamily = fontFamily('brandNumber');
 const brandFamily = fontFamily('brand');
 
@@ -154,7 +155,7 @@ export const semantic = {
   },
 
   font: {
-    /** 系统字族（不设 fontFamily） */
+    /** 系统字族：用原子层 `family.sans`（当前临时统一 PingFang SC） */
     sys: {
       display: {
         xxl: text(42, 52, { weight: 'bold', letterSpacing: -0.8 }),
@@ -195,12 +196,14 @@ export const semantic = {
           letterSpacing: 0.2,
         }),
       },
-      /** 控件文字：按钮 / 标签 / 分段器 */
+      /** 控件文字：按钮 / 标签 / 分段器（六档，供组件层按档位引用） */
       label: {
-        l: text(17, 24, { weight: 'semibold' }),
+        xl: text(17, 26, { weight: 'semibold' }),
+        l: text(16, 24, { weight: 'semibold' }),
         m: text(15, 22, { weight: 'semibold' }),
-        s: text(13, 20, { weight: 'medium' }),
-        xs: text(11, 16, { weight: 'medium' }),
+        s: text(14, 20, { weight: 'semibold' }),
+        xs: text(13, 18, { weight: 'semibold' }),
+        '2xs': text(12, 16, { weight: 'semibold' }),
       },
     },
 

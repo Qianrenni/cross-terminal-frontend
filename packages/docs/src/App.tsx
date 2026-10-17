@@ -7,6 +7,7 @@ import {
   type ThemeName,
 } from '@cross-terminal/components';
 import { demos, findDemo } from './demo/registry';
+import { BenchPage } from './BenchPage';
 import { DemoPage } from './DemoPage';
 import { HomePage } from './HomePage';
 import { useHashRoute } from './useHashRoute';
@@ -38,6 +39,10 @@ export function App() {
               跨端组件库
             </button>
             <span className="topbar__meta">react-native-web · 浏览器端渲染</span>
+
+            <button className="topbar__link" type="button" onClick={() => navigate('bench')}>
+              性能
+            </button>
 
             <label className="topbar__switch">
               <input
@@ -73,7 +78,9 @@ export function App() {
           </header>
 
           <main className="main">
-            {demo ? (
+            {key === 'bench' ? (
+              <BenchPage largeScreen={largeScreen} onLargeScreenChange={setLargeScreen} />
+            ) : demo ? (
               /**
                * `key` 是必须的：`#/icon` → `#/button` 只是 hash 变化，React 会**复用同一个
                * `DemoPage` 实例**，而 `DemoPage` 里的 `useState(initialValues(...))` 只在挂载时求值，

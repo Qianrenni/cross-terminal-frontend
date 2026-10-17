@@ -5,7 +5,7 @@ import { act, fireEvent, render } from '@testing-library/react-native';
 import { QButton } from '@/button';
 import type { QButtonProps } from '@/button';
 import * as buttonStyleModule from '@/button/style';
-import { getTheme, DEFAULT_THEME_NAME } from '@/design';
+import { getTheme, DEFAULT_THEME_NAME, primitive } from '@/design';
 import { QLargeScreenProvider } from '@/utils';
 
 /** 大屏换算的测试窗口（基准 / 桌面） */
@@ -141,7 +141,7 @@ describe('QButton 交互', () => {
     expect(style.height).toBe(height);
     expect(style.borderRadius).toBe(height / 2);
     // 别用「超大值假装胶囊」——超过高度一半会被按宽高分别裁剪成椭圆
-    expect(style.borderRadius).not.toBe(theme.primitive.radius.full);
+    expect(style.borderRadius).not.toBe(primitive.radius.full);
   });
 
   it('level 决定字号与行高：等级越高字越大（主文案 / 副文案各自分档）', () => {
@@ -195,7 +195,7 @@ describe('QButton 交互', () => {
     const secondaryFrame = secondary.frames[0];
     const tertiaryFrame = tertiary.frames[0];
 
-    expect(secondaryFrame.borderWidth).toBe(theme.primitive.stroke.thin);
+    expect(secondaryFrame.borderWidth).toBe(qButtonTokens.borderWidth);
     expect(secondaryFrame.borderRadius).toBe(qButtonTokens.height[6] / 2);
 
     // 两种形态都有线框，只是颜色不同

@@ -28,7 +28,7 @@ export interface ButtonStyles {
  * 每次调用都比较贵，所以外面有 `buttonStylesOf()` 按主题对象缓存。
  */
 export function createButtonStyles(theme: ThemeConfig): ButtonStyles {
-  const { components, primitive } = theme;
+  const { components, semantic } = theme;
   const button = components.button;
 
   return {
@@ -38,7 +38,7 @@ export function createButtonStyles(theme: ThemeConfig): ButtonStyles {
       justifyContent: 'center',
     },
     pressed: {
-      opacity: primitive.opacity.pressed,
+      opacity: semantic.opacity.pressed,
     },
     leading: {
       marginRight: button.iconGap,
@@ -84,7 +84,7 @@ export function createButtonStyles(theme: ThemeConfig): ButtonStyles {
       right: 0,
       bottom: 0,
       left: 0,
-      borderWidth: primitive.stroke.thin,
+      borderWidth: button.borderWidth,
     },
   };
 }
@@ -188,7 +188,7 @@ export function buttonVariantStyle(
         // 边框不在容器上画（会吃掉内容盒），改由绝对定位的 frame 负责
         borderRadius: radius,
         paddingHorizontal: button.paddingHorizontal[level],
-        opacity: inactive ? theme.primitive.opacity.disabled : 1,
+        opacity: inactive ? theme.semantic.opacity.disabled : 1,
       },
       style,
     ],

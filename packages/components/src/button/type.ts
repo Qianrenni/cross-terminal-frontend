@@ -23,6 +23,8 @@ export interface QButtonTokens {
   subFont: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
   /** 双行时第二行的上边距（px）：负值 = 向上收 */
   lineGap: number;
+  /** 线框宽度（px） */
+  borderWidth: number;
   /** 图标与文字之间的间距（px） */
   iconGap: number;
   /** 文案之间的横向间距（px）；以左右外边距实现（`text` 与 `suffixText` 相邻时两侧相加） */

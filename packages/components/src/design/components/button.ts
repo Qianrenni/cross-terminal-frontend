@@ -54,6 +54,9 @@ export const buttonTokens = {
 
   /** 双行时第二行的上边距（px）：负值 = 向上收，让两行排得更紧 */
   lineGap: -2,
+
+  /** 线框宽度（px）：几何直接写数值（颜色在语义层） */
+  borderWidth: 1,
   /** 图标与文字之间的间距（px） */
   iconGap: 2,
   /** 文案之间的横向间距（px）；以左右外边距实现（相邻时两侧相加） */
@@ -82,6 +85,7 @@ export type ButtonTokenDict = {
   font: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
   subFont: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
   lineGap: number;
+  borderWidth: number;
   iconGap: number;
   textGap: number;
 };

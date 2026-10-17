@@ -12,6 +12,13 @@ describe('语义层 semantic（路径字典）', () => {
     expect(theme.semantic.color.brand.primary).toBe(primitive.color.yellow[500]);
   });
 
+  it('交互态透明度在语义层（组件不再依赖 theme.primitive）', () => {
+    expect(semantic.opacity.pressed).toBe(primitive.opacity.pressed);
+    expect(semantic.opacity.disabled).toBe(primitive.opacity.disabled);
+    expect(theme.semantic.opacity.pressed).toBe(primitive.opacity.pressed);
+    expect(theme.semantic.opacity.disabled).toBe(primitive.opacity.disabled);
+  });
+
   it('文字 / 背景 / 描边 / 状态 / 促销都能追溯到原子层', () => {
     const { color } = theme.semantic;
 

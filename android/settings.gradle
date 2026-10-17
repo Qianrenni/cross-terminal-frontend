@@ -1,0 +1,19 @@
+pluginManagement { includeBuild("../packages/rn-app/node_modules/@react-native/gradle-plugin") }
+
+plugins { id("com.facebook.react.settings") }
+
+/**
+ * 本仓库布局与 RN 模板不同：RN 工程在 `packages/rn-app`，原生工程在 `android/`。
+ * 因此 autolinking 必须显式指定「命令的工作目录」，否则会去 `android/../node_modules` 找 CLI。
+ */
+def isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    ex.autolinkLibrariesFromCommand(
+            [isWindows ? "npx.cmd" : "npx", "@react-native-community/cli", "config"],
+            new File(settingsDir, "../packages/rn-app")
+    )
+}
+
+rootProject.name = 'CrossTermHost'
+include ':app'
+includeBuild('../packages/rn-app/node_modules/@react-native/gradle-plugin')

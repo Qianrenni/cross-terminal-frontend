@@ -1,0 +1,2039 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QButton 快照 primary/加载中 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": true,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#111827"
+    size="small"
+    style={
+      {
+        "marginRight": 6,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 primary/禁用 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 primary/默认 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 secondary/加载中 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": true,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#EAB308"
+    size="small"
+    style={
+      {
+        "marginRight": 6,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 secondary/禁用 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 secondary/默认 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 tertiary/加载中 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": true,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "transparent",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#EAB308"
+    size="small"
+    style={
+      {
+        "marginRight": 6,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "#E5E7EB",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 tertiary/禁用 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "transparent",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 0.5,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "#E5E7EB",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 tertiary/默认 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "transparent",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#EAB308",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "borderWidth": 1,
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderColor": "#E5E7EB",
+          "borderRadius": 24,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`QButton 快照 仅副文案 1`] = `
+<View
+  accessibilityLabel="提交订单"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交订单
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#4B5563",
+              "fontSize": 12,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "marginLeft": 4,
+              "marginRight": 4,
+              "marginTop": 2,
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.6)",
+            },
+          ]
+        }
+      >
+        ¥128.00
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 仅后缀 1`] = `
+<View
+  accessibilityLabel="提交订单"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交订单
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        去支付
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 双行 + 前后缀 1`] = `
+<View
+  accessibilityLabel="提交订单"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交订单
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        去支付
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#4B5563",
+              "fontSize": 12,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "marginLeft": 4,
+              "marginRight": 4,
+              "marginTop": 2,
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.6)",
+            },
+          ]
+        }
+      >
+        ¥128.00
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#4B5563",
+              "fontSize": 12,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 16,
+              "marginLeft": 4,
+              "marginRight": 4,
+              "marginTop": 2,
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.6)",
+            },
+          ]
+        }
+      >
+        限时
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 右图标 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "marginLeft": 6,
+      }
+    }
+  >
+    <Text>
+      ▶
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 左右图标 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "marginRight": 6,
+      }
+    }
+  >
+    <Text>
+      ◀
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "marginLeft": 6,
+      }
+    }
+  >
+    <Text>
+      ▶
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 左图标 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "marginRight": 6,
+      }
+    }
+  >
+    <Text>
+      ◀
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 最低层级 L1 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 0.55)",
+          "borderRadius": 14,
+          "height": 28,
+          "opacity": 1,
+          "paddingHorizontal": 6,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 自定义无障碍标签 1`] = `
+<View
+  accessibilityLabel="提交订单按钮"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`QButton 快照 默认 1`] = `
+<View
+  accessibilityLabel="提交"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": false,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        {
+          "backgroundColor": "rgba(234, 179, 8, 1)",
+          "borderRadius": 24,
+          "height": 48,
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        },
+        undefined,
+      ],
+      false,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 0,
+              "lineHeight": 22,
+              "marginLeft": 4,
+              "marginRight": 4,
+            },
+            {
+              "color": "#111827",
+            },
+          ]
+        }
+      >
+        提交
+      </Text>
+    </View>
+  </View>
+</View>
+`;

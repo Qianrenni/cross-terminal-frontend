@@ -1,0 +1,13 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "types": ["jest"],
+    "jsx": "react",
+    // 不用 baseUrl（TS 7.0 起移除）。TS 5.0+ 允许 paths 独立使用，
+    // 此时每条映射按「声明它的 tsconfig.json 所在目录」解析，所以写成 ./src/*。
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

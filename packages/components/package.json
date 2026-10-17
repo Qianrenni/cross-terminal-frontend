@@ -1,0 +1,39 @@
+{
+  "name": "@cross-terminal/components",
+  "version": "0.1.0",
+  "private": true,
+  "description": "跨端组件库（RN + react-native-web 共用一份实现）",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-native": ">=0.87",
+    "react-native-svg": ">=15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@react-native/babel-preset": "0.87.1",
+    "@react-native/jest-preset": "0.87.1",
+    "@react-native/typescript-config": "0.87.1",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^29.5.13",
+    "@types/react": "^19.1.0",
+    "jest": "^29.6.3",
+    "react": "19.2.3",
+    "react-native": "0.87.1",
+    "react-native-svg": "15.16.0",
+    "react-test-renderer": "19.2.3",
+    "typescript": "^5.7.2"
+  }
+}

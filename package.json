@@ -1,0 +1,42 @@
+{
+  "name": "cross-terminal-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "description": "跨端容器前端工作区：RN 业务工程 + 跨端组件库",
+  "scripts": {
+    "start:rn": "pnpm --filter @cross-terminal/rn-app run start:rn",
+    "start:web": "pnpm --filter @cross-terminal/rn-app run start:web",
+    "build:web": "pnpm --filter @cross-terminal/rn-app run build:web",
+    "build:bundle": "pnpm --filter @cross-terminal/rn-app run build:bundle",
+    "publish:bundle": "pnpm --filter @cross-terminal/rn-app run publish:bundle",
+    "docs:dev": "pnpm --filter @cross-terminal/docs run dev",
+    "docs:build": "pnpm --filter @cross-terminal/docs run build",
+    "docs:preview": "pnpm --filter @cross-terminal/docs run preview",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{json,jsonc,md,css,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@qyani/eslint-config": "workspace:*",
+    "eslint": "^10.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

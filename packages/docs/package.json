@@ -1,0 +1,31 @@
+{
+  "name": "@cross-terminal/docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "跨端组件库文档站：组件列表 + 配置式 Demo（浏览器端，react-native-web 渲染）",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cross-terminal/components": "workspace:*",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native-svg": "15.16.0",
+    "react-native-web": "^0.21.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.3.0",
+    "react-native": "0.87.1",
+    "typescript": "^5.7.2",
+    "vite": "^8.3.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

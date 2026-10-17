@@ -1,0 +1,12 @@
+# 提交信息门禁（commit-msg）：`[改动][影响] 摘要`
+#
+# - 第一个 [] 写「改了什么」（如 design / button / docs / repo）
+# - 第二个 [] 写「影响什么」（如 button / all / docs-site / none）
+# - 两个方括号相邻，之后空一格写摘要
+# - 合并 / 回滚 / rebase 自动生成的提交放行
+#
+# 例：[design][button] 三层 token 改成字典，圆角按高度算
+#
+# 规则实现见 scripts/verify-commit-msg.mjs（零依赖）。
+
+node scripts/verify-commit-msg.mjs "$1"

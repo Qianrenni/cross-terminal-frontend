@@ -1,0 +1,2443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QIcon 快照 中/品牌色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4280640491,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 中/白色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4294967295,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 中/默认色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/arrow-down 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="arrow-down"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M50 16 V82 M24 56 L50 82 L76 56"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/arrow-left 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="arrow-left"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M84 50 H18 M44 24 L18 50 L44 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/arrow-right 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="arrow-right"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M16 50 H82 M56 24 L82 50 L56 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/arrow-up 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="arrow-up"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M50 84 V18 M24 44 L50 18 L76 44"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/caret-down 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="caret-down"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M18 35 L50 71 L82 35 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/caret-left 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="caret-left"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M65 18 L29 50 L65 82 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/caret-right 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="caret-right"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M35 18 L71 50 L35 82 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/caret-up 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="caret-up"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M18 65 L50 29 L82 65 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/check 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="check"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M18 52 L40 74 L82 28"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/chevron-left 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="chevron-left"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M62 24 L36 50 L62 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/chevron-right 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="chevron-right"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M38 24 L64 50 L38 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/circle 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="circle"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M13 50 a37 37 0 1 0 74 0 a37 37 0 1 0 -74 0"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/circle-outline 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="circle-outline"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M13 50 a37 37 0 1 0 74 0 a37 37 0 1 0 -74 0"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/close 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/error 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="error"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M13 50 a37 37 0 1 0 74 0 a37 37 0 1 0 -74 0 M37 37 L63 63 M63 37 L37 63"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/info 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="info"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M45 32 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+    <RNSVGPath
+      d="M13 50 a37 37 0 1 0 74 0 a37 37 0 1 0 -74 0 M50 70 V46"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/minus 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="minus"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M16 50 H84"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/more 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="more"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M18 50 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M43 50 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M68 50 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/placeholder-line 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="placeholder-line"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M28 14 H72 M86 28 V72 M72 86 H28 M14 72 V28"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeDasharray",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeDasharray={
+        [
+          8,
+          14,
+        ]
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+    <RNSVGPath
+      d="M14 28 A14 14 0 0 1 28 14 M72 14 A14 14 0 0 1 86 28 M86 72 A14 14 0 0 1 72 86 M28 86 A14 14 0 0 1 14 72"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/plus 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="plus"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M50 16 V84 M16 50 H84"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/square 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="square"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M14 14 H86 V86 H14 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/square-outline 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="square-outline"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M14 14 H86 V86 H14 Z"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/star 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="star"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M50 12 L59.1 39.5 L88 39.6 L64.7 56.8 L73.5 84.4 L50 67.5 L26.5 84.4 L35.3 56.8 L12 39.6 L40.9 39.5 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/star-outline 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="star-outline"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M50 12 L59.1 39.5 L88 39.6 L64.7 56.8 L73.5 84.4 L50 67.5 L26.5 84.4 L35.3 56.8 L12 39.6 L40.9 39.5 Z"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 图标/warning 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="warning"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M45.5 70 a4.5 4.5 0 1 0 9 0 a4.5 4.5 0 1 0 -9 0"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+    <RNSVGPath
+      d="M50 17 L87 81 H13 Z M50 42 V60"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 大/品牌色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={48}
+  bbWidth={48}
+  focusable={false}
+  height={48}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 48,
+        "width": 48,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={48}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4280640491,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 大/白色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={48}
+  bbWidth={48}
+  focusable={false}
+  height={48}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 48,
+        "width": 48,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={48}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4294967295,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 大/默认色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={48}
+  bbWidth={48}
+  focusable={false}
+  height={48}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 48,
+        "width": 48,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={48}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 小/品牌色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={12}
+  bbWidth={12}
+  focusable={false}
+  height={12}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 12,
+        "width": 12,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={12}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4280640491,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 小/白色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={12}
+  bbWidth={12}
+  focusable={false}
+  height={12}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 12,
+        "width": 12,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={12}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4294967295,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 小/默认色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={12}
+  bbWidth={12}
+  focusable={false}
+  height={12}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 12,
+        "width": 12,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={12}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 粗细/prop 覆盖图标自带 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="chevron-left"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M62 24 L36 50 L62 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={12}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 粗细/图标自带 thin 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="chevron-left"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M62 24 L36 50 L62 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 粗细/粗 bold 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={12}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 粗细/细 thin 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="close"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M24 24 L76 76 M76 24 L24 76"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={5}
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
+
+exports[`QIcon 快照 默认尺寸与颜色 1`] = `
+<RNSVGSvgView
+  accessibilityLabel="caret-right"
+  accessibilityRole="image"
+  align="xMidYMid"
+  bbHeight={20}
+  bbWidth={20}
+  focusable={false}
+  height={20}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      {
+        "flex": 0,
+        "height": 20,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={100}
+  vbWidth={100}
+  width={20}
+>
+  <RNSVGGroup
+    fill={
+      {
+        "payload": 4278190080,
+        "type": 0,
+      }
+    }
+  >
+    <RNSVGPath
+      d="M35 18 L71 50 L35 82 Z"
+      fill={
+        {
+          "payload": 4279310375,
+          "type": 0,
+        }
+      }
+      propList={
+        [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;

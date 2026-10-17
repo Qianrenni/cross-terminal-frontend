@@ -1,0 +1,37 @@
+{
+  "name": "@qyani/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint flat config (TypeScript / React / Vue / JSON / CSS)",
+  "main": "eslint.config.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "node --test __test__/*.test.mjs",
+    "test:watch": "node --test --watch __test__/*.test.mjs"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "vue",
+    "react",
+    "typescript"
+  ],
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "peerDependencies": {
+    "eslint": "^10.2.1"
+  },
+  "dependencies": {
+    "@eslint-react/eslint-plugin": "^5.28.0",
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^1.2.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-vue": "^10.9.0",
+    "globals": "^17.5.0",
+    "typescript-eslint": "^8.59.0",
+    "vue-eslint-parser": "^10.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^10.2.1"
+  }
+}

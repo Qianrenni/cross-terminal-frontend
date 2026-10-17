@@ -1,0 +1,14 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "jsx": "react",
+    "types": [],
+    // 不用 baseUrl（TS 7.0 起移除）；paths 相对本文件（packages/rn-app）解析。
+    // rn-app 会顺着 `@cross-terminal/components` 的类型声明进到组件源码，
+    // 那里用了 `@/` 别名（见 packages/components/tsconfig.json），所以这边也要认。
+    "paths": {
+      "@/*": ["../components/src/*"]
+    }
+  },
+  "include": ["index.ts", "App.tsx"]
+}

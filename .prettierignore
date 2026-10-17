@@ -1,0 +1,31 @@
+# 依赖与产物
+node_modules
+dist
+build
+coverage
+*.min.js
+*.min.css
+public
+logs
+
+# 工具目录
+.git
+.vscode
+.idea
+.codegraph
+
+# 锁文件
+*.lock
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# 原生壳工程 / 后端 / 小程序：各自的工具链，不用 Prettier 格式化
+android
+ios
+harmony
+miniprogram
+backend
+
+# Jest 快照由测试生成，格式化会改掉断言内容
+*.snap

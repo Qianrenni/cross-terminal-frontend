@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.metro-health-check*
+*.log

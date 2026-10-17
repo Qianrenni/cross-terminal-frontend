@@ -1,0 +1,27 @@
+# JS / TS 依赖（各包内 node_modules 由 pnpm 管理）
+node_modules/
+
+# 构建产物
+dist/
+build/
+*.tsbuildinfo
+
+# 缓存
+.metro-health-check*
+.vite/
+*.log
+
+# 覆盖率报告
+coverage/
+
+# 原生工程产物（android/ 有独立 .gitignore，这里兜底）
+.cxx/
+
+# husky 运行时（钩子本体要提交，_ 目录不用）
+.husky/_/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store

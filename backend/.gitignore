@@ -1,0 +1,12 @@
+# 构建产物
+build/
+.gradle/
+.kotlin/
+
+# 发版数据（产物 / 元数据 / manifest），不进版本库
+data/
+
+# IDE
+.idea/
+*.iml
+.vscode/

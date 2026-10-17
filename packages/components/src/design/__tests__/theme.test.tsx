@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import { QButton } from '@/button';
@@ -373,5 +373,32 @@ describe('主题：引用稳定（缓存的前提）', () => {
     expect(yellow.semantic.color.brand.primary).not.toBe(blue.semantic.color.brand.primary);
     // 图标默认色是主文字色，与品牌色无关
     expect(yellow.components.icon.color).toBe(blue.components.icon.color);
+  });
+
+  it('未覆盖的主题在页面内共享同一份引用（含 semantic / components）', () => {
+    const seen: unknown[] = [];
+
+    function RefProbe() {
+      const { theme, global, tokens } = useThemeConfig(undefined, 'button');
+      useEffect(() => {
+        seen.push(theme, global, tokens);
+      });
+      return null;
+    }
+
+    render(
+      <>
+        <RefProbe />
+        <RefProbe />
+      </>,
+    );
+
+    const [themeA, globalA, tokensA, themeB, globalB, tokensB] = seen;
+    expect(themeA).toBe(themeB);
+    expect(themeA).toBe(defaultTheme);
+    expect(globalA).toBe(globalB);
+    expect(tokensA).toBe(tokensB);
+    // 组件 token 就是主题里那一份，没有再拷贝
+    expect(tokensA).toBe(defaultTheme.components.button);
   });
 });

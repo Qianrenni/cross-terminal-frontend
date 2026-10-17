@@ -364,12 +364,12 @@ describe('主题：引用稳定（缓存的前提）', () => {
     expect(resolveTheme(custom)).toBe(custom);
   });
 
-  it('原子层共享，语义层按主题解析', () => {
+  it('主题不携带原子层；语义层按主题解析', () => {
     const yellow = getTheme('yellow');
     const blue = getTheme('blue');
 
-    expect(yellow.primitive).toBe(primitive);
-    expect(blue.primitive).toBe(primitive);
+    // 原子层是静态共享的，不属于任何主题
+    expect('primitive' in yellow).toBe(false);
     expect(yellow.semantic.color.brand.primary).not.toBe(blue.semantic.color.brand.primary);
     // 图标默认色是主文字色，与品牌色无关
     expect(yellow.components.icon.color).toBe(blue.components.icon.color);

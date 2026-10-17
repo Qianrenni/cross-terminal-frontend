@@ -154,6 +154,19 @@ export const semantic = {
     },
   },
 
+  /**
+   * 交互态透明度（无量纲，不随主题变）。
+   *
+   * 数值直接取原子层：组件不该再通过 `theme.primitive` 拿这些值
+   * （`ThemeConfig` 里已经不含原子层）。
+   */
+  opacity: {
+    /** 按压态 */
+    pressed: primitive.opacity.pressed,
+    /** 禁用态 */
+    disabled: primitive.opacity.disabled,
+  },
+
   font: {
     /** 系统字族：用原子层 `family.sans`（当前临时统一 PingFang SC） */
     sys: {

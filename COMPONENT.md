@@ -71,7 +71,8 @@ export type IconName = string;
 > ② 语义层 `semantic`（**颜色**写成**路径**，如 `'primitive.color.yellow.500'`；数字直接取原子层）→
 > ③ 组件层 `components`（同上）。
 > `theme.ts` 在**运行时**把路径解析成值，并叠加主题与覆盖：
-> `ThemeConfig = { themeName, primitive, semantic, components }`；
+> `ThemeConfig = { themeName, semantic, components }`（**不含原子层**：原子层是静态原始值，
+> 需要时直接 `import { primitive }`；交互态透明度等也已放到语义层 `semantic.opacity`）；
 > 内置 7 套主题（黄·默认 / 橙 / 粉 / 蓝 / 红 / 棕 / 绿），
 > 可用 `QThemeProvider theme` + `setTheme()` 切换主题，
 > 用 `overrides={{ 'color.brand.primary': '#EF4444' }}` / `setOverrides()` **按值覆盖语义层**，

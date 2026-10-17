@@ -1,7 +1,6 @@
 import { components } from './components';
 import type { ComponentDict } from './components';
 import { primitive } from './primitive';
-import type { Primitive } from './primitive';
 import { semantic } from './semantic';
 import type { SemanticDict } from './semantic';
 
@@ -193,12 +192,15 @@ function resolveDict(dict: unknown, semanticLookup: unknown): unknown {
 
 /* ============================== 主题 ============================== */
 
-/** 一套完整的主题：**三层 + 主题名**。 */
+/**
+ * 一套完整的主题：**语义层 + 组件层 + 主题名**。
+ *
+ * 不包含原子层：原子层是静态共享的原始值，不属于「某个主题」，
+ * 组件 / 消费方需要时直接从 `design/primitive` 取（或用语义层已经引用好的值）。
+ */
 export interface ThemeConfig {
   /** 主题名 */
   themeName: ThemeName;
-  /** ① 原子层（与主题无关，静态共享） */
-  primitive: Primitive;
   /** ② 语义层（**已解析**：值是色值 / 数字，不是路径） */
   semantic: Semantic;
   /** ③ 组件层（**已解析**） */
@@ -246,7 +248,6 @@ function buildTheme(name: ThemeName, overrides?: ThemeOverrides): ThemeConfig {
 
   return {
     themeName: name,
-    primitive,
     semantic: resolvedSemantic,
     components: resolveDict(mergedComponents, resolvedSemantic) as Components,
   };

@@ -21,7 +21,7 @@ src/
 ├── utils/                # 与具体组件无关的通用工具
 │   ├── index.ts              # 出口
 │   ├── type.ts               # DeepPartial / DeepReadonly / … 类型工具
-│   └── large-screen.ts       # 大屏适配：按屏幕宽度缩放 style 里的长度类数值
+│   └── large-screen.tsx     # 大屏适配：按屏幕宽度缩放 style 里的长度类数值（含开关 Provider）
 ├── testUtils/case.ts     # 快照用例通用类型 Case<T> 与生成器（testCase / matrix）
 ├── icon/                 # 图标（图标数据 + 取 token + 实现）
 │   ├── index.ts              # 出口
@@ -75,18 +75,20 @@ src/
   ② semantic.ts           颜色写点分字符串            semantic.color.brand.primary → 'primitive.color.yellow.500'
   ③ components/<组件>.ts  几何直接写数值、颜色 / 排版写路径  components/button.ts → height { 1: 28 … 6: 48 }
           ↓                （theme.ts 运行时把字符串变值 + 叠加主题 / 覆盖）
-  getTheme('blue')        解析后的值                  theme.semantic.color.brand.primary → '#3B82F6'
+  getTheme('blue')        解析后的值（**不含原子层**）  theme.semantic.color.brand.primary → '#3B82F6'
   ```
 
-  | 层             | 内容                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 会不会被主题改变          |
-  | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-  | ① `primitive`  | `color`：`white/black/transparent`、`gray`(25~900)、`slate`(25~900)、11 条色相（`yellow/orange/brown/red/pink/purple/blue/cyan/teal/green/lime`，各 50~600）、`alpha.white`(15~60%)、`alpha.black`(2~93%)；`font`：`family{sans,brand,brandNumber}`（分平台）、`size`(9~42，键即 px)、`lineHeight`(14~60)、`weight`(4 档)；`spacing`(2px 网格)、`radius`、`stroke`、`size`、`shadow`、`opacity`                                                                                                                           | ❌ 静态共享               |
-  | ② `semantic`   | `color.brand{primary,onPrimary,subtitle,onSubtitle,tertiary,onTertiary,onCombo,text{highlight,price}}`、`color.text{primary…inverse}`、`color.status{success,warning,error,info}`（各 `{default,onDefault,weak}`）、`color.promo{red,orange}`、`color.background{white,primary,secondary,tertiary,subtitleFill,disabled,cancel,mask,transparent}`、`color.stroke{white,default,secondary,primary}`、`font.sys{display,heading,title,body,caption,label}`、`font.number{5xl…xs}`、`font.brand{heading,title,body,caption}` | ✅ 品牌那几条路径按主题换 |
-  | ③ `components` | **一个组件一个文件**：`button.ts`（`height` 按 level 1~6 / `paddingHorizontal` 按 level 1~6 / `lineGap` / `iconGap` / `textGap`）、`icon.ts`（`size` / `color` / `strokeWidth`）；`index.ts` 汇总                                                                                                                                                                                                                                                                                                                         | ✅（颜色跟着语义层走）    |
+  | 层             | 内容                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 会不会被主题改变          |
+  | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
+  | ① `primitive`  | `color`：`white/black/transparent`、`gray`(25~900)、`slate`(25~900)、11 条色相（`yellow/orange/brown/red/pink/purple/blue/cyan/teal/green/lime`，各 50~600）、`alpha.white`(15~60%)、`alpha.black`(2~93%)；`font`：`family{sans,brand,brandNumber}`（分平台）、`size`(9~42，键即 px)、`lineHeight`(14~60)、`weight`(4 档)；`spacing`(2px 网格)、`radius`、`stroke`、`size`、`shadow`、`opacity`                                                                                                                                                        | ❌ 静态共享               |
+  | ② `semantic`   | `color.brand{primary,onPrimary,subtitle,onSubtitle,tertiary,onTertiary,onCombo,text{highlight,price}}`、`color.text{primary…inverse}`、`color.status{success,warning,error,info}`（各 `{default,onDefault,weak}`）、`color.promo{red,orange}`、`color.background{white,primary,secondary,tertiary,subtitleFill,disabled,cancel,mask,transparent}`、`color.stroke{white,default,secondary,primary}`、`opacity{pressed,disabled}`、`font.sys{display,heading,title,body,caption,label}`、`font.number{5xl…xs}`、`font.brand{heading,title,body,caption}` | ✅ 品牌那几条路径按主题换 |
+  | ③ `components` | **一个组件一个文件**：`button.ts`（`height` / `paddingHorizontal` 按 level 1~6、`font` / `subFont` 引用语义层、`lineGap` / `borderWidth` / `iconGap` / `textGap`）、`icon.ts`（`size` / `color` / `strokeWidth`）；`index.ts` 汇总                                                                                                                                                                                                                                                                                                                     | ✅（颜色跟着语义层走）    |
   - **组件层几何直接写数值**：`height: { 1: 28, … 6: 48 }`、`paddingHorizontal: { 1: 10, … 6: 24 }`
     —— 不去 `import` 全局 token，改按钮就改这一个文件；
   - **组件层排版写语义层路径**：`font: { 1: 'semantic.font.sys.label.2xs', … 6: '…label.xl' }`，
     解析后 `theme.components.button.font[level]` 是整份文字样式（字号 / 行高 / 字重 / 字距 / 颜色）；
+  - **`ThemeConfig` 不含原子层**：`{ themeName, semantic, components }`。原子层是静态原始值，
+    需要时直接 `import { primitive }`；按压 / 禁用透明度已经在语义层 `semantic.opacity`；
   - **全局 token 用点分字符串索引**：如 `icon.color: 'semantic.color.text.primary'`、
     语义层 `primary: 'primitive.color.yellow.500'`。**不要在字典里直接 import `primitive` 取值**，
     否则值在模块加载时就被钉死，换主题 / 覆盖都不会生效；
@@ -119,6 +121,21 @@ src/
     组件的 `style.ts` 就用它；`CommonProps.theme` 可给单个组件覆盖主题
     （优先级：`theme` prop > `useThemeConfig` 的 `overrides` > `QThemeProvider` > 默认黄）；
   - 组件的行为常量（如 level → 几何档位的对应关系）**不属于**主题，留在组件实现里；
+
+- **大屏适配（`utils/large-screen.tsx`）**：按窗口宽度把长度类数值整体缩放
+  （基准 375，>880 为 1.4 倍；结果**向下取整**、负值先取绝对值再取整；
+  `Dimensions` 只订阅一次，**系数**走全局缓存）。`QButton` / `QIcon` 已接入：
+
+  ```tsx
+  // 组件里拿不到系数，也不传系数：缩放全在 hook 内部完成
+  const styles = useLargeScreenStyles(RAW_STYLES); // 一组命名样式（静态表）
+  const scaled = useLargeScreenStyle(rawStyle); // 单个 style / 样式数组 / 计算结果对象
+  const gap = useLargeScreenValue(8); // 非 style 的单个数值
+  ```
+
+  不想缩放时用 `<QLargeScreenProvider enabled={false}>` 包一层即可（默认开启）；
+  docs 顶栏的「大屏转换」开关就是这个 Provider 的现场演示。
+  ⚠️ 所以 `style.ts` 返回的是**朴素对象**（不是 `StyleSheet.create` 的 id），否则原生端拿不到数值。
 
 - **路径别名**：组件库内 `@/xxx` 即 `src/xxx`（如 `@/design`、`@/button/type`）。
   tsconfig 的 `paths` **只影响类型检查**，运行时必须各工具链单独配：

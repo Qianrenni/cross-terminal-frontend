@@ -1,10 +1,16 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react-native';
+import { Dimensions } from 'react-native';
+import { act, fireEvent, render } from '@testing-library/react-native';
 import { Path, Svg } from 'react-native-svg';
 import { DEFAULT_THEME_NAME, getTheme } from '@/design';
 import { ICON_PATHS, QIcon } from '@/icon';
 import type { IconShape } from '@/icon';
 import type { IconName } from '@/icon/type';
+import { QLargeScreenProvider } from '@/utils';
+
+/** 大屏换算的测试窗口（基准 / 桌面） */
+const BASE_WINDOW = { width: 375, height: 667, scale: 2, fontScale: 2 };
+const WIDE_WINDOW = { width: 1024, height: 768, scale: 2, fontScale: 2 };
 
 /** 默认主题（黄）——无 `QThemeProvider` 时组件读到的就是它。 */
 const qIconTokens = getTheme(DEFAULT_THEME_NAME).components.icon;
@@ -229,5 +235,39 @@ describe('QIcon 交互', () => {
     );
 
     expect(UNSAFE_getByType(Svg).props.accessibilityLabel).toBe('返回上一步');
+  });
+});
+
+describe('大屏换算', () => {
+  afterEach(() => {
+    act(() => Dimensions.set({ window: BASE_WINDOW, screen: BASE_WINDOW }));
+  });
+
+  it('窗口变宽时 size 跟着放大（描边是 viewBox 单位，不缩放）', () => {
+    Dimensions.set({ window: WIDE_WINDOW, screen: WIDE_WINDOW });
+
+    const { UNSAFE_getByType } = render(<QIcon name="caret-left" />);
+    const svg = UNSAFE_getByType(Svg);
+
+    expect(svg.props.width).toBe(Math.floor(qIconTokens.size * 1.4));
+    expect(svg.props.height).toBe(Math.floor(qIconTokens.size * 1.4));
+    // 描边粗细是 viewBox 单位，不随屏幕缩放（仍是 token 里的原值）
+    svg.findAllByType(Path).forEach((path: { props: Record<string, unknown> }) => {
+      if (path.props.stroke != null) {
+        expect(Object.values(qIconTokens.strokeWidth)).toContain(path.props.strokeWidth);
+      }
+    });
+  });
+
+  it('QLargeScreenProvider enabled={false} 时保持 1 倍', () => {
+    Dimensions.set({ window: WIDE_WINDOW, screen: WIDE_WINDOW });
+
+    const { UNSAFE_getByType } = render(
+      <QLargeScreenProvider enabled={false}>
+        <QIcon name="caret-left" />
+      </QLargeScreenProvider>,
+    );
+
+    expect(UNSAFE_getByType(Svg).props.width).toBe(qIconTokens.size);
   });
 });

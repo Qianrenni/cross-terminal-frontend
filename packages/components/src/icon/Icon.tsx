@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { Pressable } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { useThemeConfig } from '@/design/context';
+import { useLargeScreenStyle } from '@/utils/large-screen';
 import { DEFAULT_VIEW_BOX } from './icons/type';
 import { iconStyle } from './style';
 import type { QIconProps } from './type';
@@ -20,15 +21,17 @@ function QIconImpl({
   /** 优先用组件自己的 `theme` prop（局部覆盖），否则跟随 `QThemeProvider`。 */
   const { theme } = useThemeConfig(themeOverride, 'icon');
 
+  const rawStyle = useMemo(
+    () => iconStyle(theme, { name, size, color, weight }),
+    [theme, name, size, color, weight],
+  );
+  /** 大屏换算交给 hook：`size` 会被缩放，`strokeWidth` 是 viewBox 单位，保持不变 */
   const {
     shape,
     size: resolvedSize,
     color: resolvedColor,
     strokeWidth,
-  } = useMemo(
-    () => iconStyle(theme, { name, size, color, weight }),
-    [theme, name, size, color, weight],
-  );
+  } = useLargeScreenStyle(rawStyle);
 
   /** 画布：默认 100×100，可被图标自己的 `viewBox` 覆盖（约定见 `./icons/type.ts`）。 */
   const viewBox = shape.viewBox ?? DEFAULT_VIEW_BOX;

@@ -7,14 +7,16 @@
 `verify-commit-msg.mjs` 由 `.husky/commit-msg` 调用，强制提交信息格式：
 
 ```text
-[改动][影响] 摘要
+[type][change] 改了什么 [effect] 影响哪些
 
 # 例：
-[design][button] 三层 token 改成字典，圆角按高度算
+[feat][change] 新增 QHotzone 热区开关 [effect] 文档站、全部示例
 ```
 
+- type 白名单：`feat | fix | test | docs | refactor | style | perf | build | ci | chore | revert`
+- `[change]` 写具体改动，`[effect]` 写影响范围，都不能为空；
 - `Merge` / `Revert` / `fixup!` / `squash!` 开头自动放行；
-- 首行 ≤ 100 字符；
+- 首行 ≤ 120 字符；
 - 手动验证：`node scripts/verify-commit-msg.mjs <某个文件>`
 
 ## 一条命令构建 + 发布

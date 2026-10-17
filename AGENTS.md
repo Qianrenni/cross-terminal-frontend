@@ -83,10 +83,13 @@ src/<组件目录，小写>/
 - ESLint 10 flat config：`js/recommended` + `typescript-eslint` + `react-hooks` 全量（含 React Compiler）
   - `@eslint-react` recommended（JSX）+ JSON/JSONC + CSS；
 - **提交时**（`.husky/pre-commit`）自动跑：ESLint（暂存文件，`--max-warnings=0`）→ Prettier（暂存文件）→ 单测；
-- **提交信息**（`.husky/commit-msg`）必须是 `[改动][影响] 摘要`：
+- **提交信息**（`.husky/commit-msg`）必须是
+  `[type][change] 改了什么 [effect] 影响哪些`，type 白名单：
+  `feat | fix | test | docs | refactor | style | perf | build | ci | chore | revert`
 
   ```text
-  [design][button] 三层 token 改成字典，圆角按高度算
+  [feat][change] 新增 QHotzone 热区开关 [effect] 文档站、全部示例
+  [refactor][change] 设计系统改为三层字典 [effect] 全部组件、主题 API
   ```
 
 - 改完代码的验收顺序：`pnpm check` → `pnpm --filter @cross-terminal/components run test` →

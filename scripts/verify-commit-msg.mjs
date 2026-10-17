@@ -1,23 +1,45 @@
 #!/usr/bin/env node
 /**
- * commit message 校验：`[改动][影响] 摘要`
+ * commit message 校验：`[type][change] 改了什么 [effect] 影响哪些`
  *
  * ```text
- * [design][button] 三层 token 改成字典，圆角按高度算
- * │      │
- * │      └ 第二个 []：影响什么（组件 / 范围 / all / none）
- * └ 第一个 []：改了什么（模块 / 领域）
+ * [feat][change] 新增 QHotzone 热区开关 [effect] 文档站、全部示例
+ * │    │        │                     │       │
+ * │    │        │                     │       └ 影响哪些（包 / 组件 / 文档 / none）
+ * │    │        │                     └ [effect] 固定标签
+ * │    │        └ 具体改了什么
+ * │    └ [change] 固定标签
+ * └ type：feat / fix / test / docs / refactor / style / perf / build / ci / chore / revert
  * ```
  *
  * 规则（只校验**首行**，正文 / footer 随你写）：
- * 1. 必须以 `[改动][影响]` 开头（两个方括号**相邻**），两个方括号都不能为空；
- * 2. `]` 之后至少一个空格，再接非空摘要；
- * 3. 首行不超过 100 个字符（中文按字符数，报错时提示）；
- * 4. `Merge` / `Revert` / `fixup!` / `squash!` 开头的自动提交放行。
+ * 1. 必须是白名单里的 type（小写），紧跟 `[change]`；
+ * 2. `[change]` 后写具体改了什么，不能为空；
+ * 3. 必须出现 `[effect]`，后面写影响哪些，不能为空；
+ * 4. 首行不超过 120 个字符（中文按字符数，报错时提示）；
+ * 5. `Merge` / `Revert` / `fixup!` / `squash!` 开头的自动提交放行。
  *
  * 零依赖（只用 node 内置模块），因为它在每次 commit 时都会跑。
  */
 import { readFileSync } from 'node:fs';
+
+/** 允许的改动类型（小写）。加类型时同步 README / AGENTS.md / scripts/README.md。 */
+const TYPES = [
+  'feat',
+  'fix',
+  'test',
+  'docs',
+  'refactor',
+  'style',
+  'perf',
+  'build',
+  'ci',
+  'chore',
+  'revert',
+];
+
+/** 首行长度上限（中文按字符数）。 */
+const MAX_LENGTH = 120;
 
 /** 命令行参数：commit-msg 钩子传进来的文件路径。 */
 const messageFile = process.argv[2];
@@ -41,15 +63,17 @@ const header = (lines.find((line) => line.trim() !== '') ?? '').trim();
 /** 自动产生的提交：合并 / 回滚 / rebase 修正，不套用业务格式。 */
 const AUTO_PREFIXES = ['Merge ', 'Revert ', 'fixup!', 'squash!'];
 
-const PATTERN = /^\[([^[\]\n]+)\]\[([^[\]\n]+)\]\s+(\S.*)$/;
+/** `[type][change] <改动> [effect] <影响>` */
+const PATTERN = /^\[([a-z]+)\]\[change\]\s+(.+?)\s+\[effect\]\s+(.+)$/;
 
 function fail(reason) {
   console.error('');
   console.error('✖ 提交信息不符合规范：' + reason);
   console.error('');
-  console.error('  格式： [改动][影响] 摘要');
-  console.error('  示例： [design][button] 三层 token 改成字典，圆角按高度算');
-  console.error('         [docs][docs-site] 补充热区调试开关说明');
+  console.error('  格式： [type][change] 改了什么 [effect] 影响哪些');
+  console.error('  type： ' + TYPES.join(' | '));
+  console.error('  示例： [feat][change] 新增 QHotzone 热区开关 [effect] 文档站、全部示例');
+  console.error('         [refactor][change] 设计系统改为三层字典 [effect] 全部组件、主题 API');
   console.error('');
   console.error('  你写的是： ' + (header === '' ? '(空)' : header));
   console.error('');
@@ -64,14 +88,16 @@ if (AUTO_PREFIXES.some((prefix) => header.startsWith(prefix))) {
 
 const match = header.match(PATTERN);
 if (match == null) {
-  fail('必须以 `[改动][影响]` 开头，且后面跟一个空格 + 摘要');
+  fail('格式应为 `[type][change] 改了什么 [effect] 影响哪些`');
 }
 
-const [, change, impact, summary] = match;
+const [, type, change, effect] = match;
 
-if (change.trim() === '') fail('第一个 []（改动）不能为空');
-if (impact.trim() === '') fail('第二个 []（影响）不能为空');
-if (summary.trim() === '') fail('`[改动][影响]` 之后必须有摘要');
-if (header.length > 100) fail(`首行 ${header.length} 个字符，超过 100`);
+if (!TYPES.includes(type)) {
+  fail(`type \`${type}\` 不在白名单内（只能是 ${TYPES.join(' / ')}）`);
+}
+if (change.trim() === '') fail('`[change]` 后面要写具体改了什么');
+if (effect.trim() === '') fail('`[effect]` 后面要写影响哪些');
+if (header.length > MAX_LENGTH) fail(`首行 ${header.length} 个字符，超过 ${MAX_LENGTH}`);
 
 process.exit(0);

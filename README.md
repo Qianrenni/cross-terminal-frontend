@@ -93,16 +93,19 @@ pnpm start:web
 提交信息校验（`.husky/commit-msg`）——**必须是**：
 
 ```text
-[改动][影响] 摘要
+[type][change] 改了什么 [effect] 影响哪些
 
 # 例：
-[design][button] 三层 token 改成字典，圆角按高度算
-[docs][docs-site] 新增热区调试开关
+[feat][change] 新增 QHotzone 热区开关 [effect] 文档站、全部示例
+[refactor][change] 设计系统改为三层字典 [effect] 全部组件、主题 API
+[test][change] 补主题覆盖用例 [effect] components 单测
+[docs][change] 补充提交信息规范 [effect] README、AGENTS.md
 ```
 
-- 第一个 `[]`：改了什么（模块 / 领域）
-- 第二个 `[]`：影响什么（组件 / 范围 / `all` / `none`）
-- 合并、回滚、`fixup!`/`squash!` 自动放行
+- **`type` 必须在白名单内**：`feat | fix | test | docs | refactor | style | perf | build | ci | chore | revert`
+- `[change]` 后面写**具体改了什么**
+- `[effect]` 后面写**影响哪些**（包 / 组件 / 文档 / `none`）
+- 首行 ≤ 120 字符；合并、回滚、`fixup!`/`squash!` 自动放行
 - 规则实现：`scripts/verify-commit-msg.mjs`
 
 > 紧急情况可用 `git commit --no-verify` 跳过，但**不要**在 CI 上依赖它。

@@ -61,12 +61,15 @@ pnpm install
 # 2. 组件文档站（推荐先看这个）
 pnpm docs:dev            # http://localhost:5174
 
-# 3. RN 原生（需要先 `pnpm start:rn` 起 Metro，再用 Android Studio 跑 android/）
+# 3. RN 原生（debug 走 Metro：先 `pnpm start:rn`，再用 Android Studio 跑 android/）
 pnpm start:rn
 
 # 4. RN Web
 pnpm start:web
 ```
+
+> 线上运行时 Bundle 由 **OTA 下发**：App 冷启动拉 manifest → 下载校验 → 下次冷启动生效，
+> APK 内置的 `assets` 只作兜底。配置与验证见 [`android/README.md`](./android/README.md)。
 
 ## 常用命令
 

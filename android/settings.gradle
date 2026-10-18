@@ -1,4 +1,12 @@
-pluginManagement { includeBuild("../packages/rn-app/node_modules/@react-native/gradle-plugin") }
+/**
+ * ⚠️ 路径指向**仓库根**的 `node_modules`。
+ *
+ * 仓库 `.npmrc` 设了 `node-linker=hoisted`（扁平化布局），依赖全部装在根目录，
+ * `packages/rn-app/node_modules/@react-native/...` 并不存在（那是 npm 非 monorepo 布局的路径）。
+ * 如果以后改成 pnpm 的 isolated 布局，这里要改成 `.pnpm` 里的真实目录，
+ * 或给 `packages/rn-app` 加 `@react-native/gradle-plugin` 直接依赖。
+ */
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
 
 plugins { id("com.facebook.react.settings") }
 
@@ -16,4 +24,4 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 
 rootProject.name = 'CrossTermHost'
 include ':app'
-includeBuild('../packages/rn-app/node_modules/@react-native/gradle-plugin')
+includeBuild('../node_modules/@react-native/gradle-plugin')

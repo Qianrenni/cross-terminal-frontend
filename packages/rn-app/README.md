@@ -76,6 +76,11 @@ pnpm run publish:bundle                    # 发布到发版后端
 改 `App.tsx` 里的 `BUILD_MARKER`（如 `'build-1'` → `'build-2'`），重新构建并发布；
 App 冷启动拉到新包后，页面上的"构建标记"应随之变化。这是最直观的端到端验证手段。
 
+注意两点（实现见 `android/app/src/main/java/com/qianrenni/crossterm/ota/`）：
+
+- **debug 构建固定走 Metro**，不读 OTA 包；
+- OTA 包下载完是**下次冷启动**生效（`ReactHost` 建好时 bundle 路径就固定了）。
+
 ## 约定
 
 - `app.json` 的 `name` 即 **RN 根组件名**，必须与服务端下发的 `entry` 字段一致（当前为 `MainComponent`）。

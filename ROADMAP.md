@@ -102,26 +102,24 @@
 
 ```
 filesDir/ota/
-├── bundles/
-│   ├── 1.1.0/index.android.bundle      # 历史版本（保留用于回滚）
-│   └── 1.2.0/index.android.bundle      # 当前版本
-├── staging/                            # 下载中的临时文件（校验通过后移入 bundles/）
-│   └── index.android.bundle.part
-└── state.json                          # 当前指针 + 回滚信息
+├── bundles/<versionCode>/bundle.hbc    # 可加载的包（按 versionCode 分目录，current + previous 各一份）
+├── staging/<versionCode>.part          # 下载中的临时文件（校验通过后移入 bundles/）
+└── state.json                          # 当前指针 + 上一版（回滚用）
 ```
+
+> 实现：`android/app/src/main/java/com/qianrenni/crossterm/ota/OtaBundleStore.kt`。
+> 目录名用 `versionCode` 而非语义版本号——比较与去重都靠它，语义版本只用于日志。
 
 `state.json`：
 
 ```json
 {
-  "current": { "version": "1.2.0", "path": "bundles/1.2.0/index.android.bundle" },
-  "previous": { "version": "1.1.0", "path": "bundles/1.1.0/index.android.bundle" },
-  "pending_confirm": true,
-  "launch_attempts": 1
+  "current": { "versionCode": 2, "version": "2.0.0", "entry": "MainComponent", "md5": "9c8f…" },
+  "previous": { "versionCode": 1, "version": "1.0.0", "entry": "MainComponent", "md5": "1a2b…" }
 }
 ```
 
-- `pending_confirm` / `launch_attempts`：**崩溃回滚的判据**。新版本首次加载时置 `pending_confirm=true`，RN 首屏成功渲染后回调 SDK 置 `false`；若连续 `launch_attempts` 超过阈值（如 2 次）仍未确认，SDK 判定新版本有问题，回滚到 `previous`。
+- `pending_confirm` / `launch_attempts`：**崩溃回滚的判据**（步骤 7 待做）。新版本首次加载时置 `pending_confirm=true`，RN 首屏成功渲染后回调 SDK 置 `false`；若连续 `launch_attempts` 超过阈值（如 2 次）仍未确认，SDK 判定新版本有问题，回滚到 `previous`。
 
 ### 3.3 更新流程状态机
 
@@ -229,16 +227,16 @@ cross-terminal-frontend/
 
 ## 8. 落地进度
 
-| #   | 任务                                                  | 状态                                     | 位置                           |
-| --- | ----------------------------------------------------- | ---------------------------------------- | ------------------------------ |
-| 1   | Ktor 发版后端骨架                                     | ✅ 完成                                  | `backend/`                     |
-| 2   | manifest 数据模型 + 预生成 + 静态托管 + 发布/回滚接口 | ✅ 完成（含端到端测试）                  | `backend/`                     |
-| 3   | RN 工程 + 构建/发布脚本                               | ✅ 完成（产出 Hermes Bundle 并成功发布） | `packages/rn-app/`、`scripts/` |
-| 4   | Android 宿主 App 并集成 RN                            | ⬜ 待做                                  | `android/`                     |
-| 5   | 自定义 `JSBundleLoader`（从文件系统加载）             | ⬜ 待做                                  | `android/ota/`                 |
-| 6   | OTA SDK：检查 / 下载 / 校验 / 切换                    | ⬜ 待做                                  | `android/ota/`                 |
-| 7   | OTA SDK：崩溃回滚                                     | ⬜ 待做                                  | `android/ota/`                 |
-| 8   | 端到端验证                                            | ⬜ 待做                                  | —                              |
+| #   | 任务                                                  | 状态                                      | 位置                           |
+| --- | ----------------------------------------------------- | ----------------------------------------- | ------------------------------ |
+| 1   | Ktor 发版后端骨架                                     | ✅ 完成                                   | `backend/`                     |
+| 2   | manifest 数据模型 + 预生成 + 静态托管 + 发布/回滚接口 | ✅ 完成（含端到端测试）                   | `backend/`                     |
+| 3   | RN 工程 + 构建/发布脚本                               | ✅ 完成（产出 Hermes Bundle 并成功发布）  | `packages/rn-app/`、`scripts/` |
+| 4   | Android 宿主 App 并集成 RN                            | ✅ 完成                                   | `android/`                     |
+| 5   | 自定义 `JSBundleLoader`（从文件系统加载）             | ✅ 完成（`jsBundleFilePath` 指向 OTA 包） | `android/app/.../ota/`         |
+| 6   | OTA SDK：检查 / 下载 / 校验 / 切换                    | ✅ 完成（下载后下次冷启动生效）           | `android/app/.../ota/`         |
+| 7   | OTA SDK：崩溃回滚                                     | ⬜ 待做（`state.json` 已预留 previous）   | `android/app/.../ota/`         |
+| 8   | 端到端验证                                            | ⬜ 待做（需真机 / 模拟器）                | —                              |
 
 **已验证**：
 

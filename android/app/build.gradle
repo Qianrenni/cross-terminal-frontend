@@ -77,18 +77,33 @@ def enableProguardInReleaseBuilds = false
  */
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
+// OTA（热更新）配置：默认值给本地联调，换环境在 android/gradle.properties 覆盖（或 -POTA_xxx=…）
+def otaEnabled = (findProperty("OTA_ENABLED") ?: "true").toString()
+def otaManifestBaseUrl = (findProperty("OTA_MANIFEST_BASE_URL") ?: "http://10.0.2.2:8080").toString()
+def otaAppKey = (findProperty("OTA_APP_KEY") ?: "guga_app").toString()
+def otaRenderer = (findProperty("OTA_RENDERER") ?: "react_native").toString()
+
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.qianrenni.crossterm"
+    buildFeatures {
+        // OTA 的地址 / appKey 走 BuildConfig，必须显式开启（AGP 8 默认关）
+        buildConfig true
+    }
     defaultConfig {
         applicationId "com.qianrenni.crossterm"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "boolean", "OTA_ENABLED", otaEnabled
+        buildConfigField "String", "OTA_MANIFEST_BASE_URL", "\"$otaManifestBaseUrl\""
+        buildConfigField "String", "OTA_APP_KEY", "\"$otaAppKey\""
+        buildConfigField "String", "OTA_RENDERER", "\"$otaRenderer\""
     }
     signingConfigs {
         debug {

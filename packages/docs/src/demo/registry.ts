@@ -1,6 +1,7 @@
 import { buttonDemo } from './button';
 import { hotzoneDemo } from './hotzone';
 import { iconDemo } from './icon';
+import { textDemo } from './text';
 import type { AnyComponentDemo } from './types';
 
 /**
@@ -8,7 +9,7 @@ import type { AnyComponentDemo } from './types';
  *
  * 新增一个组件：写一份 `ComponentDemo`，然后在这里加一行。
  */
-export const demos: AnyComponentDemo[] = [hotzoneDemo, iconDemo, buttonDemo];
+export const demos: AnyComponentDemo[] = [textDemo, hotzoneDemo, iconDemo, buttonDemo];
 
 /** 按路由 key 找 demo。 */
 export function findDemo(key: string): AnyComponentDemo | undefined {

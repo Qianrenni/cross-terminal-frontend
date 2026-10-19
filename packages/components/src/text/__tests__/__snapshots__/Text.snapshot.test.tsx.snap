@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QText 快照 品牌色/不限制 1`] = `
+<Text
+  accessibilityLabel="两行文本会在这里换行显示"
+  style={
+    [
+      {
+        "color": "#2563EB",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  两行文本会在这里换行显示
+</Text>
+`;
+
+exports[`QText 快照 品牌色/单行 1`] = `
+<Text
+  accessibilityLabel="两行文本会在这里换行显示"
+  numberOfLines={1}
+  style={
+    [
+      {
+        "color": "#2563EB",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  两行文本会在这里换行显示
+</Text>
+`;
+
+exports[`QText 快照 排版/body 1`] = `
+<Text
+  accessibilityLabel="正文内容"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 13,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+      },
+      undefined,
+    ]
+  }
+>
+  正文内容
+</Text>
+`;
+
+exports[`QText 快照 排版/caption 1`] = `
+<Text
+  accessibilityLabel="辅助说明"
+  style={
+    [
+      {
+        "color": "#4B5563",
+        "fontFamily": "PingFang SC",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  辅助说明
+</Text>
+`;
+
+exports[`QText 快照 排版/display 1`] = `
+<Text
+  accessibilityLabel="大标题"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 24,
+        "fontWeight": "700",
+        "letterSpacing": -0.3,
+        "lineHeight": 32,
+      },
+      undefined,
+    ]
+  }
+>
+  大标题
+</Text>
+`;
+
+exports[`QText 快照 排版/heading 1`] = `
+<Text
+  accessibilityLabel="章节标题"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 24,
+        "fontWeight": "600",
+        "letterSpacing": -0.2,
+        "lineHeight": 32,
+      },
+      undefined,
+    ]
+  }
+>
+  章节标题
+</Text>
+`;
+
+exports[`QText 快照 排版/label 1`] = `
+<Text
+  accessibilityLabel="按钮文案"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "600",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  按钮文案
+</Text>
+`;
+
+exports[`QText 快照 排版/title 1`] = `
+<Text
+  accessibilityLabel="卡片标题"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 18,
+        "fontWeight": "600",
+        "letterSpacing": 0,
+        "lineHeight": 26,
+      },
+      undefined,
+    ]
+  }
+>
+  卡片标题
+</Text>
+`;
+
+exports[`QText 快照 排版/品牌 1`] = `
+<Text
+  accessibilityLabel="品牌正文"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  品牌正文
+</Text>
+`;
+
+exports[`QText 快照 排版/数字 1`] = `
+<Text
+  accessibilityLabel="1,280"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 42,
+        "fontWeight": "700",
+        "letterSpacing": -0.5,
+        "lineHeight": 52,
+      },
+      undefined,
+    ]
+  }
+>
+  1,280
+</Text>
+`;
+
+exports[`QText 快照 默认色/不限制 1`] = `
+<Text
+  accessibilityLabel="两行文本会在这里换行显示"
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  两行文本会在这里换行显示
+</Text>
+`;
+
+exports[`QText 快照 默认色/单行 1`] = `
+<Text
+  accessibilityLabel="两行文本会在这里换行显示"
+  numberOfLines={1}
+  style={
+    [
+      {
+        "color": "#111827",
+        "fontFamily": "PingFang SC",
+        "fontSize": 15,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  两行文本会在这里换行显示
+</Text>
+`;

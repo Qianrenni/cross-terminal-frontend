@@ -91,14 +91,23 @@ export type IconName = string;
  *
  * 事件：`onPress`（点击）
  */
-export interface QTextProps extends CommonProps {
+export interface QTextProps extends Omit<CommonProps, 'style'> {
   text: string;
+  /** 排版 token 路径（语义层 `font.*`），如 'font.sys.body.m'、'font.number.5xl' */
+  typography: TypographyPath;
+  /** 文字颜色；省略用排版 token 自带的 color */
+  color?: string;
   /** 超出行数后省略 */
   numberOfLines?: number;
   /** 点击 */
   onPress?: () => void;
+  /** 文本样式（TextStyle，不是 ViewStyle） */
+  style?: StyleProp<TextStyle>;
 }
 ```
+
+> `QText` **没有组件 token**：排版是语义层的资产，`typography` 直接引用
+> `semantic.font.*` 路径（类型 `TypographyPath` 由字体树自动推导，拼错档位编译期报错）。
 
 ### `QIcon` · 图标
 

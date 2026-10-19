@@ -12,3 +12,4 @@ export * from './utils';
 export * from './button';
 export * from './icon';
 export * from './hotzone';
+export * from './text';

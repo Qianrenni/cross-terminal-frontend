@@ -1,4 +1,4 @@
-import type { TextStyle } from 'react-native';
+import type { FontToken } from './font';
 
 /**
  * # ③ 组件层 · 按钮（`button`）
@@ -64,14 +64,7 @@ export const buttonTokens = {
 };
 
 /** 语义层字体 token（`semantic.font.*`）解析后的形状。 */
-export interface FontToken {
-  fontSize: number;
-  lineHeight: number;
-  fontWeight: TextStyle['fontWeight'];
-  letterSpacing: number;
-  color: string;
-  fontFamily?: string;
-}
+export type { FontToken };
 
 /**
  * 按钮 token **解析后**的字典类型。

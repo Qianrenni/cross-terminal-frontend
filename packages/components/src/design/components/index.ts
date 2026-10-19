@@ -36,4 +36,5 @@ export type ComponentDict = Omit<typeof components, 'button'> & {
 export { buttonTokens } from './button';
 export { iconTokens } from './icon';
 export type { ButtonTokenDict } from './button';
+export type { FontToken } from './font';
 export type { IconTokenDict } from './icon';

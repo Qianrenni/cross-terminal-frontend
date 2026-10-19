@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react';
+import type { ThemeConfig } from '@cross-terminal/components';
 
 /**
  * 配置式 Demo 的类型。
@@ -109,8 +110,11 @@ export interface ComponentDemo<P extends object = object> {
    *
    * 标量 prop 直接透传即可；`ReactNode` 这类没法用输入框表达的，
    * 在这里由下拉选项映射成节点。
+   *
+   * **颜色 / 字体这类主题派生值必须用第二个参数 `theme` 现算**，
+   * 不能在模块顶层 `getTheme(DEFAULT_THEME_NAME)` 冻一份 —— 那样切主题时预览不会变色。
    */
-  toProps: (values: DemoValues) => P;
+  toProps: (values: DemoValues, theme: ThemeConfig) => P;
   /**
    * 自定义示例代码（可选）。
    *

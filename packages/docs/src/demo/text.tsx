@@ -1,16 +1,23 @@
 import { DEFAULT_THEME_NAME, QText, getTheme } from '@cross-terminal/components';
-import type { QTextProps, TypographyPath } from '@cross-terminal/components';
+import type { QTextProps, ThemeConfig, TypographyPath } from '@cross-terminal/components';
 import type { ComponentDemo, DemoValues } from './types';
 
 /**
  * `QText` 的配置式 Demo。
  *
- * 排版下拉是**从语义层字体树推导**的：往 `semantic.font` 里加档位（`design/semantic.ts`），
- * 这里自动多一个选项，不用改本文件。
+ * 两条关键约定：
+ * 1. **颜色预设必须现算**（`toProps` 的第二个参数 `theme`），不能在模块顶层
+ *    `getTheme(DEFAULT_THEME_NAME)` 冻一份 —— 否则顶栏切主题时预览不会变色；
+ * 2. 排版下拉是**从语义层字体树推导**的：往 `semantic.font` 里加档位
+ *    （`design/semantic.ts`），这里自动多一个选项。
  */
-const theme = getTheme(DEFAULT_THEME_NAME);
 
-/** 把字体树摊平成 `font.sys.body.m` 这样的路径（叶子 = 带 `fontSize` 的对象）。 */
+/**
+ * 把字体树摊平成 `font.sys.body.m` 这样的路径（叶子 = 带 `fontSize` 的对象）。
+ *
+ * 只用于**枚举路径**：字体树的**结构**不随主题变（换主题变的只是每个档位的数值），
+ * 所以这里用默认主题走一遍即可，不涉及任何颜色。
+ */
 function typographyPaths(): TypographyPath[] {
   const paths: string[] = [];
 
@@ -26,17 +33,23 @@ function typographyPaths(): TypographyPath[] {
     }
   };
 
-  walk(theme.semantic.font, 'font');
+  walk(getTheme(DEFAULT_THEME_NAME).semantic.font, 'font');
   return paths as TypographyPath[];
 }
 
-/** 颜色预设：`default` = 不传，用排版 token 自带的色。 */
-const COLORS: Record<string, string | undefined> = {
-  default: undefined,
-  brand: theme.semantic.color.brand.primary,
-  secondary: theme.semantic.color.text.secondary,
-  error: theme.semantic.color.status.error.default,
-};
+/** 颜色预设：`default` = 不传，用排版 token 自带的色（**按当前主题现算**）。 */
+function colorOf(name: string, theme: ThemeConfig): string | undefined {
+  switch (name) {
+    case 'brand':
+      return theme.semantic.color.brand.primary;
+    case 'secondary':
+      return theme.semantic.color.text.secondary;
+    case 'error':
+      return theme.semantic.color.status.error.default;
+    default:
+      return undefined;
+  }
+}
 
 export const textDemo: ComponentDemo<QTextProps> = {
   key: 'text',
@@ -95,13 +108,13 @@ export const textDemo: ComponentDemo<QTextProps> = {
     },
   ],
 
-  toProps: (values: DemoValues) => {
+  toProps: (values: DemoValues, theme: ThemeConfig) => {
     const props: QTextProps = {
       text: String(values.text ?? ''),
       typography: values.typography as TypographyPath,
     };
 
-    const color = COLORS[String(values.color)];
+    const color = colorOf(String(values.color), theme);
     if (color) props.color = color;
 
     const lines = Number(values.numberOfLines);

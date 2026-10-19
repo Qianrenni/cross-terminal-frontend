@@ -1,5 +1,5 @@
-import { DEFAULT_THEME_NAME, ICON_PATHS, QIcon, getTheme } from '@cross-terminal/components';
-import type { IconName, QIconProps } from '@cross-terminal/components';
+import { ICON_PATHS, QIcon } from '@cross-terminal/components';
+import type { IconName, QIconProps, ThemeConfig } from '@cross-terminal/components';
 import type { ComponentDemo, DemoValues } from './types';
 
 /**
@@ -9,14 +9,26 @@ import type { ComponentDemo, DemoValues } from './types';
  * （并在 `icons/index.ts` 的注册表里加一行），这里自动多一个选项，不用改本文件。
  */
 
-/** 颜色预设：`default` = 不传，走组件 token 默认值。 */
-const COLORS: Record<string, string | undefined> = {
-  default: undefined,
-  brand: getTheme(DEFAULT_THEME_NAME).semantic.color.brand.primary,
-  success: getTheme(DEFAULT_THEME_NAME).semantic.color.status.success.default,
-  error: getTheme(DEFAULT_THEME_NAME).semantic.color.status.error.default,
-  inverse: getTheme(DEFAULT_THEME_NAME).semantic.color.text.inverse,
-};
+/**
+ * 颜色预设：`default` = 不传，走组件 token 默认值。
+ *
+ * **按当前主题现算**（`toProps` 的第二个参数），不能在模块顶层冻一份，
+ * 否则顶栏切主题时图标的品牌色 / 成功色不会跟着变。
+ */
+function colorOf(name: string, theme: ThemeConfig): string | undefined {
+  switch (name) {
+    case 'brand':
+      return theme.semantic.color.brand.primary;
+    case 'success':
+      return theme.semantic.color.status.success.default;
+    case 'error':
+      return theme.semantic.color.status.error.default;
+    case 'inverse':
+      return theme.semantic.color.text.inverse;
+    default:
+      return undefined;
+  }
+}
 
 /**
  * 线宽预设：`default` = 不传，走「图标自带 → `regular`」的兜底。
@@ -108,13 +120,13 @@ export const iconDemo: ComponentDemo<QIconProps> = {
     },
   ],
 
-  toProps: (values: DemoValues) => {
+  toProps: (values: DemoValues, theme: ThemeConfig) => {
     const props: QIconProps = {
       name: values.name as IconName,
       size: Number(values.size),
     };
 
-    const color = COLORS[String(values.color)];
+    const color = colorOf(String(values.color), theme);
     if (color) props.color = color;
 
     const weight = WEIGHTS[String(values.weight)];

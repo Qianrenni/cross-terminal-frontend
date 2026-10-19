@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
+import { useQTheme } from '@cross-terminal/components';
 import {
   initialValues,
   type AnyComponentDemo,
@@ -32,7 +33,15 @@ export function DemoPage({ demo, onBack, hotzone }: DemoPageProps) {
   /** 预览区容器：热区覆盖层以它为坐标系测量 */
   const stageRef = useRef<HTMLDivElement>(null);
 
-  const props = useMemo(() => demo.toProps(values), [demo, values]);
+  /**
+   * **当前生效主题**（顶栏切主题会变）。
+   *
+   * 必须传给 `toProps`：颜色 / 字体这类主题派生值要现算，
+   * 否则 demo 里在模块顶层取一次默认主题，切主题时预览不会变色。
+   */
+  const { theme } = useQTheme();
+
+  const props = useMemo(() => demo.toProps(values, theme), [demo, values, theme]);
   const code = useMemo(
     () =>
       demo.renderCode ? demo.renderCode(values) : renderCode(demo.name, demo.controls, values),

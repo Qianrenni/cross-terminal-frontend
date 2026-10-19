@@ -72,8 +72,9 @@ describe('QIcon 交互', () => {
     const { UNSAFE_getAllByType } = render(<QIcon name="caret-right" />);
     const paths = UNSAFE_getAllByType(Path);
 
+    // caret 是描边折线（只有 stroke），所以取「第一条可用 d」，不写死 fill / stroke
     expect(paths).toHaveLength(1);
-    expect(paths[0].props.d).toBe(ICON_PATHS['caret-right'].fill);
+    expect(paths[0].props.d).toBe(pathDataSet(ICON_PATHS['caret-right'])[0]);
   });
 
   it('路径表里每个 name 都至少有一条非空路径，且都能渲染出来', () => {

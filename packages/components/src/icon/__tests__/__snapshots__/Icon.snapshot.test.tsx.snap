@@ -479,18 +479,26 @@ exports[`QIcon 快照 图标/caret-down 1`] = `
     }
   >
     <RNSVGPath
-      d="M18 35 L50 71 L82 35 Z"
-      fill={
+      d="M18 35 L50 71 L82 35"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
         {
           "payload": 4279310375,
           "type": 0,
         }
       }
-      propList={
-        [
-          "fill",
-        ]
-      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
     />
   </RNSVGGroup>
 </RNSVGSvgView>
@@ -534,18 +542,26 @@ exports[`QIcon 快照 图标/caret-left 1`] = `
     }
   >
     <RNSVGPath
-      d="M65 18 L29 50 L65 82 Z"
-      fill={
+      d="M65 18 L29 50 L65 82"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
         {
           "payload": 4279310375,
           "type": 0,
         }
       }
-      propList={
-        [
-          "fill",
-        ]
-      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
     />
   </RNSVGGroup>
 </RNSVGSvgView>
@@ -589,18 +605,26 @@ exports[`QIcon 快照 图标/caret-right 1`] = `
     }
   >
     <RNSVGPath
-      d="M35 18 L71 50 L35 82 Z"
-      fill={
+      d="M35 18 L71 50 L35 82"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
         {
           "payload": 4279310375,
           "type": 0,
         }
       }
-      propList={
-        [
-          "fill",
-        ]
-      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
     />
   </RNSVGGroup>
 </RNSVGSvgView>
@@ -644,18 +668,26 @@ exports[`QIcon 快照 图标/caret-up 1`] = `
     }
   >
     <RNSVGPath
-      d="M18 65 L50 29 L82 65 Z"
-      fill={
+      d="M18 65 L50 29 L82 65"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
         {
           "payload": 4279310375,
           "type": 0,
         }
       }
-      propList={
-        [
-          "fill",
-        ]
-      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
     />
   </RNSVGGroup>
 </RNSVGSvgView>
@@ -2425,18 +2457,26 @@ exports[`QIcon 快照 默认尺寸与颜色 1`] = `
     }
   >
     <RNSVGPath
-      d="M35 18 L71 50 L35 82 Z"
-      fill={
+      d="M35 18 L71 50 L35 82"
+      fill={null}
+      propList={
+        [
+          "fill",
+          "stroke",
+          "strokeWidth",
+          "strokeLinecap",
+          "strokeLinejoin",
+        ]
+      }
+      stroke={
         {
           "payload": 4279310375,
           "type": 0,
         }
       }
-      propList={
-        [
-          "fill",
-        ]
-      }
+      strokeLinecap={1}
+      strokeLinejoin={1}
+      strokeWidth={8}
     />
   </RNSVGGroup>
 </RNSVGSvgView>

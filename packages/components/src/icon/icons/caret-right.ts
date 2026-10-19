@@ -1,6 +1,6 @@
 import type { IconShape } from './type';
 
-/** 右向实心三角（`caret-right`）。 */
-const caretRight: IconShape = { fill: 'M35 18 L71 50 L35 82 Z' };
+/** 右向折线箭头（`caret-right`，描边）。 */
+const caretRight: IconShape = { stroke: 'M35 18 L71 50 L35 82' };
 
 export default caretRight;

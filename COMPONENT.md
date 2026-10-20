@@ -701,6 +701,45 @@ export interface UploadFile {
 
 ## 四、导航
 
+### `QBottomTab` · 底部标签栏
+
+```ts
+/**
+ * 底部标签栏。
+ *
+ * 事件：`onChange`（切换选中项）
+ *
+ * 高度 46 = 8（顶部间距）+ 24（icon 正方形）+ 14（文字行高）；
+ * 选中态 / 未选中态图标**同时渲染**，用 `opacity` + `scale` 交叉切换。
+ */
+export interface QBottomTabProps extends CommonProps {
+  /** 标签项（至少 1 个） */
+  items: QBottomTabItem[];
+  /** 受控选中项 key */
+  value?: string;
+  /** 非受控初始选中项；不传则选第一项 */
+  defaultValue?: string;
+  /** 选中项变化（受控 / 非受控都会触发） */
+  onChange?: (key: string) => void;
+}
+
+/** 标准标签项 */
+export interface QBottomTabItem {
+  /** 唯一标识，也是 onChange 回传的值 */
+  key: string;
+  /** 文字：icon 下方，10 / 14 */
+  label: string;
+  /** 未选中态图标（内置图标名） */
+  icon: IconName;
+  /** 选中态图标（内置图标名） */
+  activeIcon: IconName;
+}
+```
+
+> 动画：未选中 → 选中时，选中 icon `scale 0 → 1.2`（`durationIn`）后**串行**回弹 `1.2 → 1`
+> （`bounceDuration` = 50ms），`opacity 0 → 1`；未选中 icon `scale 1 → 0`、`opacity 1 → 0`。
+> **文字不动画**，只切颜色（`colorActive` / `colorInactive` token）。
+
 ### `QTabs` · 标签页
 
 ```ts

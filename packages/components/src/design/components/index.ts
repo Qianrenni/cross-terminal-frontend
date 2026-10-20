@@ -1,3 +1,5 @@
+import { bottomTabTokens } from './bottom-tab';
+import type { BottomTabTokenDict } from './bottom-tab';
 import { buttonTokens } from './button';
 import type { ButtonTokenDict } from './button';
 import { iconTokens } from './icon';
@@ -19,6 +21,7 @@ import { iconTokens } from './icon';
  * 3. 组件目录的 `QxxxTokens` 形状要与它一致。
  */
 export const components = {
+  bottomTab: bottomTabTokens,
   button: buttonTokens,
   icon: iconTokens,
 };
@@ -29,12 +32,15 @@ export const components = {
  * ⚠️ `button` 用解析后的 `ButtonTokenDict` 而不是 `typeof buttonTokens`：
  * 源码里的 `font` / `subFont` 是 `semantic.font.*` 路径字符串，解析后是字体对象。
  */
-export type ComponentDict = Omit<typeof components, 'button'> & {
+export type ComponentDict = Omit<typeof components, 'button' | 'bottomTab'> & {
+  bottomTab: BottomTabTokenDict;
   button: ButtonTokenDict;
 };
 
+export { bottomTabTokens } from './bottom-tab';
 export { buttonTokens } from './button';
 export { iconTokens } from './icon';
+export type { BottomTabTokenDict } from './bottom-tab';
 export type { ButtonTokenDict } from './button';
 export type { FontToken } from './font';
 export type { IconTokenDict } from './icon';

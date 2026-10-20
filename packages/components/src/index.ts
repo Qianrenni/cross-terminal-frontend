@@ -9,6 +9,7 @@
 export * from './types';
 export * from './design';
 export * from './utils';
+export * from './bottom-tab';
 export * from './button';
 export * from './icon';
 export * from './hotzone';

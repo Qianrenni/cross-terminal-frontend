@@ -1,35 +1,6 @@
 import type { ReactNode } from 'react';
-import type { FontToken } from '@/design/components/button';
 import type { HotzoneInset } from '@/hotzone/type';
 import type { CommonProps } from '@/types';
-
-/**
- * 按钮专属设计 token。
- *
- * 值在 `design/components/button.ts`（第 ③ 层），解析后挂在 `theme.components.button` 上。
- * 只放视觉参数，不放行为常量。
- *
- * ⚠️ **没有 `radius`**：胶囊圆角由高度决定（`height[level] / 2`），
- * 这样任何一档都是**半圆端**；超过高度一半的圆角会被按宽高分别裁剪成椭圆（Android 尤其明显）。
- */
-export interface QButtonTokens {
-  /** 高度（px），按 `level` 分档：等级越高越高 */
-  height: Record<1 | 2 | 3 | 4 | 5 | 6, number>;
-  /** 左右内边距（px），按 `level` 分档：等级越高越宽 */
-  paddingHorizontal: Record<1 | 2 | 3 | 4 | 5 | 6, number>;
-  /** 主文案排版（语义层 `font.sys.label` 解析后的对象），按 `level` 分档 */
-  font: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
-  /** 副文案排版（语义层 `font.sys.caption` 解析后的对象），按 `level` 分档 */
-  subFont: Record<1 | 2 | 3 | 4 | 5 | 6, FontToken>;
-  /** 双行时第二行的上边距（px）：负值 = 向上收 */
-  lineGap: number;
-  /** 线框宽度（px） */
-  borderWidth: number;
-  /** 图标与文字之间的间距（px） */
-  iconGap: number;
-  /** 文案之间的横向间距（px）；以左右外边距实现（`text` 与 `suffixText` 相邻时两侧相加） */
-  textGap: number;
-}
 
 /**
  * 按钮。触发操作的主控件。

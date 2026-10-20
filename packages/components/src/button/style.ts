@@ -143,7 +143,7 @@ export interface ButtonVariantStyle {
  *
  * 视觉映射：
  * - `type` 决定填充方式：`primary` 实心 / `secondary` 描边 / `tertiary` 纯文字；
- * - `level` **只决定几何**：高度、左右内边距（见 `QButtonTokens`）、胶囊圆角与**字号 / 行高**；
+ * - `level` **只决定几何**：高度、左右内边距（见 `theme.components.button`）、胶囊圆角与**字号 / 行高**；
  *   颜色一律取语义层的品牌原色，**不按 level 混合**（同一 type 在任何 level 下颜色相同）。
  *
  * ⚠️ `styles.text` / `styles.subText` 自带的排版 `color` 会被这里返回的

@@ -1,2 +1,2 @@
 export { QButton } from './Button';
-export type { QButtonProps, QButtonTokens } from './type';
+export type { QButtonProps } from './type';

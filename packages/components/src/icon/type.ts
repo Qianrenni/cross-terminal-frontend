@@ -41,19 +41,3 @@ export interface QIconProps extends CommonProps {
   /** 点击 */
   onPress?: () => void;
 }
-
-/** 图标组件 token（可被主题覆盖）。 */
-export interface QIconTokens {
-  /** 默认尺寸（px） */
-  size: number;
-  /** 默认颜色 */
-  color: string;
-  /**
-   * 描边宽度，细 / 常规 / 粗三档（**viewBox 单位**，不是 px）。
-   *
-   * ⚠️ 这三个数值是按内置图标的 **100×100 画布**定标的。因为 `Svg` 会按
-   * `width`/`height` 缩放整个坐标系，所以 100 网格上的 8 在 20px 显示时约为 1.6px、
-   * 在 48px 显示时约为 3.84px —— 线宽随尺寸等比缩放，这才是矢量图标该有的行为。
-   */
-  strokeWidth: Record<IconWeight, number>;
-}

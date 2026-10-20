@@ -1,4 +1,3 @@
-import type { FontToken } from '@/design/components/font';
 import type { IconName } from '@/icon';
 import type { CommonProps } from '@/types';
 
@@ -55,32 +54,4 @@ export interface QBottomTabProps extends CommonProps {
   defaultValue?: string;
   /** 选中项变化（受控 / 非受控都会触发） */
   onChange?: (key: string) => void;
-}
-
-/** 底部标签栏组件 token（可被主题覆盖）。 */
-export interface QBottomTabTokens {
-  /** 整条高度（px） */
-  height: number;
-  /** 图标区边长（px） */
-  iconSize: number;
-  /** 图标距顶部间距（px） */
-  iconGap: number;
-  /** 文字行高 / 文字区高度（px） */
-  labelHeight: number;
-  /** 文字排版（已解析：10/14 regular） */
-  labelFont: FontToken;
-  /** 选中态文字色 */
-  colorActive: string;
-  /** 未选中态文字色 */
-  colorInactive: string;
-  /** 背景色 */
-  background: string;
-  /** 选中动画峰值缩放 */
-  popScale: number;
-  /** 膨大段时长（ms）：`0 → popScale` */
-  durationIn: number;
-  /** 回弹段时长（ms）：`popScale → 1`，串行跟在膨大段后 */
-  bounceDuration: number;
-  /** 出场动画时长（ms） */
-  durationOut: number;
 }
